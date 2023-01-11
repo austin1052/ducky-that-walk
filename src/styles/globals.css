@@ -1,0 +1,38 @@
+@import url("https://use.typekit.net/qvl8bhx.css");
+
+:root {
+  --black: #0A0A0A;
+  --dark: #121212;
+  --mid: #5A5A5A;
+  --light: rgb(255, 207, 231);
+  --lightOpaque: rgb(255, 207, 231, 0.1);
+  --accent: rgba(207, 51, 129, 0.5);
+  /* --accent: rgba(255, 138, 233, 0.5); */
+
+  --br: 3px;
+  --border: 2px solid var(--lightOpaque);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: ofelia-display, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--light);
+}
+
+body {
+  min-height: 100vh;
+  background: rgb(10,10,10);
+  background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(22,22,22,1) 100%);
+  margin-top: 2rem;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+

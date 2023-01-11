@@ -1,0 +1,42 @@
+.topThreeContainer {
+  padding-bottom: 2rem;
+  border-bottom: 4px solid var(--lightOpaque);
+  text-align: center;
+  display: flex;
+  gap: 2rem;
+  /* width: 700px; */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 250px;
+  height: 250px;
+  background: var(--dark);
+  border: 3px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+}
+
+.name {
+  color: var(--accent);
+}
+
+.points {
+  font-weight: 700;
+  font-size: 3.5rem;
+}
+
+.label {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--lightOpaque);
+}
+
+.houseName {
+  font-weight: 500;
+  color: var(--accent);
+}
