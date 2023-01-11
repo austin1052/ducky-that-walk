@@ -1,0 +1,64 @@
+.listItem {
+  display: flex;
+  align-items: center;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  border-bottom: 1px solid var(--lightOpaque);
+}
+
+.number {
+  font-size: 1.5rem;
+}
+
+.nameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name {
+  font-size: 1.5rem;
+  margin-inline: 2rem;
+  transform: translateY(-10px);
+}
+
+.name::after {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 45px;
+  background: var(--accent);
+  transform: translateX(26px) translateY(15px) rotate(15deg);
+  border-radius: 2px;
+}
+
+.houseContainer {
+  margin-left: 2rem;
+  position: relative;
+  transform: translateY(7px);
+}
+
+.houseName::before {
+  content: "haus of";
+  position: absolute;
+  color: var(--lightOpaque);
+  font-size: 1rem;
+  font-style: italic;
+  top: -19px;
+  left: -10px;
+}
+
+.houseName {
+  font-size: 1rem;
+}
+
+.points {
+  margin-left: auto;
+  padding-inline: 0.5rem;
+  padding-block: 0.3rem;
+  min-width: 70px;
+  text-align: center;
+  border-radius: 6px;
+  color: var(--dark);
+  background: var(--light);
+}
