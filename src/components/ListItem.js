@@ -1,7 +1,7 @@
 import { isAlreadySelected } from '../utils/index.js';
 import styles from '../styles/ListItem.module.css';
 
-const ListItem = ({ queen, setQueensList, checkCount, category, max }) => {
+export default function ListItem({ queen, setQueensList, checkCount, category, max }) {
 
   let selectedInCategory = queen.selected[category];
   const alreadySelected = isAlreadySelected(queen);
@@ -42,5 +42,3 @@ const ListItem = ({ queen, setQueensList, checkCount, category, max }) => {
     </li >
   );
 };
-
-export default ListItem;

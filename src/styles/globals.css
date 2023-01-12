@@ -6,8 +6,8 @@
   --mid: #5A5A5A;
   --light: rgb(255, 207, 231);
   --lightOpaque: rgb(255, 207, 231, 0.1);
-  --accent: rgba(207, 51, 129, 0.5);
-  /* --accent: rgba(255, 138, 233, 0.5); */
+  /* --accent: rgba(207, 51, 129, 0.5);  */
+  --accent: rgba(220, 125, 180);
 
   --br: 3px;
   --border: 2px solid var(--lightOpaque);
@@ -30,9 +30,16 @@ body {
   margin-top: 2rem;
 }
 
-#root {
+.App {
   width: 100%;
   display: flex;
   justify-content: center;
+  padding-inline: 0.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  #root {
+    padding-inline: 3rem;
+  }
 }
 

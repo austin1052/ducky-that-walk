@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../styles/Card.module.css'
+import styles from '../styles/ScoreCard.module.css'
 
-const Card = ({ player, idx }) => {
+export default function Card({ player, idx }) {
   idx = idx + 1;
 
   const { name, totalPoints, houseName } = player[1]
@@ -17,5 +17,3 @@ const Card = ({ player, idx }) => {
     </div>
   );
 };
-
-export default Card;

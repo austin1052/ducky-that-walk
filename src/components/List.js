@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from '../styles/List.module.css';
+import styles from '../styles/ScoreList.module.css';
 
-const List = ({ player, idx }) => {
+export default function List({ player, idx, isMobile }) {
 
   const { name, houseName, totalPoints } = player[1];
   return (
@@ -9,14 +9,14 @@ const List = ({ player, idx }) => {
       <div className={styles.number}>{idx}</div>
       <div className={styles.nameContainer}>
         <div className={styles.name}>{name}</div>
-        <div className={styles.houseContainer}>
-          {/* <div className={styles.label}>haus of</div> */}
-          <div className={styles.houseName}>{houseName}</div>
-        </div>
+        {
+          !isMobile &&
+          <div className={styles.houseContainer}>
+            <div className={styles.houseName}>{houseName}</div>
+          </div>
+        }
       </div>
       <div className={styles.points}>{totalPoints}</div>
-    </div>
+    </div >
   );
 };
-
-export default List;
