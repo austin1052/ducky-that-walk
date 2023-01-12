@@ -8,6 +8,7 @@
 
 .number {
   font-size: 1.5rem;
+  color: var(--accent);
 }
 
 .nameContainer {
@@ -17,19 +18,11 @@
 }
 
 .name {
-  font-size: 1.5rem;
-  margin-inline: 2rem;
-  transform: translateY(-10px);
-}
-
-.name::after {
-  content: '';
-  display: inline-block;
-  width: 3px;
-  height: 45px;
-  background: var(--accent);
-  transform: translateX(26px) translateY(15px) rotate(15deg);
-  border-radius: 2px;
+  font-size: 1.2rem;
+  margin-inline: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .houseContainer {
@@ -38,11 +31,14 @@
   transform: translateY(7px);
 }
 
+
+/* house label */
 .houseName::before {
   content: "haus of";
   position: absolute;
   color: var(--lightOpaque);
   font-size: 1rem;
+  font-weight: 500;
   font-style: italic;
   top: -19px;
   left: -10px;
@@ -50,15 +46,33 @@
 
 .houseName {
   font-size: 1rem;
+  margin-right: 1rem;
 }
 
 .points {
   margin-left: auto;
   padding-inline: 0.5rem;
   padding-block: 0.3rem;
-  min-width: 70px;
+  width: 70px;
+  font-weight: 700;
   text-align: center;
   border-radius: 6px;
   color: var(--dark);
-  background: var(--light);
+  background: var(--accent);
+}
+
+@media only screen and (min-width: 1024px) {
+  .name::after {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 45px;
+    background: var(--accent);
+    transform: translateX(26px) rotate(15deg);
+    border-radius: 2px;
+  }
+
+  .name {
+    margin-inline: 2rem;
+  }
 }

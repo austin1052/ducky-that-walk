@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import { ref, onValue } from "firebase/database";
-import { db } from '../config/index.js';
 import styles from '../styles/CreatePlayer.module.css';
 import { createNewPlayer } from '../utils/db.js';
 import QueenSelection from '../components/QueenSelection.js'
 import { options } from '../utils/data.js'
 
-const CreatePlayer = () => {
+export default function CreatePlayer({ allQueensData }) {
   const [queensList, setQueensList] = useState([]);
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
@@ -14,31 +12,27 @@ const CreatePlayer = () => {
   const [userFormActive, setUserFormActive] = useState(true);
   const [menuOpen, setMenuOpen] = useState({ player: false, slayer: false, winner: false })
 
-  useEffect(() => {
-    const queensRef = ref(db, "queens/");
-    onValue(queensRef, (snapshot) => {
-      if (snapshot.exists()) {
-        const queenData = [];
-        const names = [];
-        const data = snapshot.val();
-        const queenIDs = Object.keys(data);
-        queenIDs.forEach((id) => {
-          queenData.push({
-            selected: {
-              winner: false,
-              slayer: false,
-              player: false
-            },
-            name: data[id].name,
-            id
-          });
-          names.push(data[id].name);
-        })
-        setQueensList(queenData);
-      }
-    });
-  }, [])
+  let userFormCSS, queenFormCSS;
 
+  useEffect(() => {
+    const queenIDs = Object.keys(allQueensData);
+    const queens = []
+    queenIDs.forEach((id) => {
+      queens.push({
+        selected: {
+          winner: false,
+          slayer: false,
+          player: false
+        },
+        name: allQueensData[id].name,
+        id
+      });
+    })
+    setQueensList(queens);
+  }, [allQueensData])
+
+
+  //returns [[queenID, multiplier]] ---> [["marciax3", 2], ["mbdf", 1]]
   function setPlayerQueens() {
     const playerQueens = [];
     queensList.forEach(queen => {
@@ -64,7 +58,6 @@ const CreatePlayer = () => {
     const playerData = {
       username, name, houseName, queens
     }
-    console.log({ playerData });
     createNewPlayer(playerData);
     resetForm();
   }
@@ -84,7 +77,6 @@ const CreatePlayer = () => {
     setHouseName(event.target.value);
   };
 
-  let userFormCSS, queenFormCSS;
   function setFormPosition() {
     if (userFormActive) {
       userFormCSS = `${styles.inputContainer}`;
@@ -132,5 +124,3 @@ const CreatePlayer = () => {
     </>
   );
 };
-
-export default CreatePlayer;

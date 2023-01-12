@@ -62,7 +62,7 @@ export const queenData = {
     active: true,
     stans: []
   },
-  MBDF: {
+  mbdf: {
     name: "Malaysia Babydoll Foxx",
     totalPoints: 0,
     active: true,
@@ -74,7 +74,7 @@ export const queenData = {
     active: true,
     stans: []
   },
-  MIB: {
+  mib: {
     name: "Mistress Isabelle Brooks",
     totalPoints: 0,
     active: true,
