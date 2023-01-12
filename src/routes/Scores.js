@@ -3,11 +3,13 @@ import Card from "../components/Card.js"
 import List from "../components/List.js"
 import { db } from '../config/index.js';
 import { ref, onValue } from "firebase/database";
-import cardStyles from '../styles/Card.module.css'
-import listStyles from '../styles/List.module.css'
+import cardStyles from '../styles/ScoreCard.module.css'
+import listStyles from '../styles/ScoreList.module.css'
 import { mergeSort } from "../utils/index.js";
 
-const Scores = () => {
+export default function Scores({ isMobile }) {
+  const [topThreePlayers, setTopThreePlayers] = useState([]);
+  const [otherPlayers, setOtherPlayers] = useState([]);
 
   useEffect(() => {
     const playersRef = ref(db, "testPlayers/");
@@ -16,34 +18,39 @@ const Scores = () => {
       const array = Object.entries(data)
       const sortedData = mergeSort(array);
       if (snapshot.exists()) {
-        setTopThreePlayers(sortedData.slice(0, 3))
-        setOtherPlayers(sortedData.slice(3))
+        if (isMobile) {
+          setOtherPlayers(sortedData)
+          setTopThreePlayers()
+        } else {
+          setTopThreePlayers(sortedData.slice(0, 3))
+          setOtherPlayers(sortedData.slice(3))
+        }
       }
     });
-  }, [])
+  }, [isMobile])
 
-  const [topThreePlayers, setTopThreePlayers] = useState([]);
-  const [otherPlayers, setOtherPlayers] = useState([]);
   return (
 
     <div className={cardStyles.scoreContainer}>
-      <div className={cardStyles.topThreeContainer}>
-        {
-          topThreePlayers &&
-          topThreePlayers.map((player, idx) => {
-            return (
-              <Card player={player} key={player.name} idx={idx} />
-            )
-          })
-        }
-      </div>
+      {
+        topThreePlayers &&
+        <div className={cardStyles.topThreeContainer}>
+          {
+            topThreePlayers.map((player, idx) => {
+              return (
+                <Card player={player} key={player[0]} idx={idx} />
+              )
+            })
+          }
+        </div>
+      }
       <div className={listStyles.listContainer}>
         {
           otherPlayers &&
           otherPlayers.map((player, idx) => {
-            idx = idx + 4
+            idx = isMobile ? idx + 1 : idx + 4;
             return (
-              <List player={player} key={player.name} idx={idx} />
+              <List player={player} key={player[0]} idx={idx} isMobile={isMobile} />
             )
           })
         }
@@ -51,5 +58,3 @@ const Scores = () => {
     </div>
   );
 };
-
-export default Scores;

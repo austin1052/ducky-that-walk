@@ -3,7 +3,7 @@ import ListItem from "./ListItem.js";
 import { countSelected } from '../utils/index.js';
 import styles from '../styles/CreatePlayer.module.css';
 
-const QueenSelection = ({ queensList, setQueensList, options }) => {
+export default function QueenSelection({ queensList, setQueensList, options }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [checkCount, setCheckCount] = useState(0);
 
@@ -38,5 +38,3 @@ const QueenSelection = ({ queensList, setQueensList, options }) => {
 
   );
 };
-
-export default QueenSelection;
