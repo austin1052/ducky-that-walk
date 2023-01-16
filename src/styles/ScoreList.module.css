@@ -1,8 +1,10 @@
 .listItem {
   display: flex;
   align-items: center;
-  padding-block: 1rem;
-  padding-inline: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border-bottom: var(--border1);
 }
 
@@ -19,7 +21,8 @@
 
 .name {
   font-size: 1.2rem;
-  margin-inline: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,8 +54,10 @@
 
 .points {
   margin-left: auto;
-  padding-inline: 0.5rem;
-  padding-block: 0.3rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
   width: 70px;
   font-weight: 700;
   text-align: center;
@@ -73,6 +78,7 @@
   }
 
   .name {
-    margin-inline: 2rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
   }
 }

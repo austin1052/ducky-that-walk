@@ -6,7 +6,7 @@
  border-radius: var(--br);
  grid-template-rows: auto auto;
  box-shadow: var(--bs);
- max-height: 80px;
+ max-height: 90px;
  transition: max-height 500ms;
  transition-delay: 50ms;
  overflow: hidden;
@@ -58,6 +58,7 @@
  .scoreCardContainer {
   padding: 0.5rem;
   margin-bottom: var(--marginMobile);
+  max-height: 80px;
  }
  
  .queenName {

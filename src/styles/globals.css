@@ -39,6 +39,7 @@
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+  min-height: 100vh;
 }
 
 .App {
@@ -46,7 +47,8 @@
   max-width: 1000px;
   display: flex;
   justify-content: center;
-  padding-inline: var(--marginDesktop);
+  padding-left: var(--marginDesktop);
+  padding-right: var(--marginDesktop);
 }
 
 body {
@@ -57,7 +59,8 @@ body {
 
 @media only screen and (max-width: 768px) {
   .App {
-    padding-inline: var(--marginMobile);
+    padding-left: var(--marginMobile);
+    padding-right: var(--marginMobile);
   }
 }
 

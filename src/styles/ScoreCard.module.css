@@ -9,7 +9,6 @@
   border-bottom: var(--border2);
   text-align: center;
   display: flex;
-  gap: 2rem;
 }
 
 .container {
@@ -23,6 +22,11 @@
   border: var(--border2);
   border-radius: var(--br);
   box-shadow: var(--bs);
+  margin-right: 1rem;
+}
+
+.container:last-of-type {
+  margin-right: 0;
 }
 
 .name {

@@ -16,8 +16,7 @@
 
 .form input {
   margin-bottom: 2rem;
-  padding-inline: 0.5rem;
-  padding-block: 0.5rem;
+  padding: 0.5rem;
   background: var(--black);
   border: none;
   border: var(--border2);
@@ -52,8 +51,7 @@
 }
 
 .selectButton {
-  padding-inline: 0.5rem;
-  padding-block: 0.5rem;
+  padding: 0.5rem;
   margin-bottom: 2rem;
   background: var(--black);
   display: flex;
@@ -136,8 +134,10 @@
   background: none;
   border: 2px solid var(--accent);
   border-radius: var(--br);
-  padding-inline: 0.2rem;
-  padding-block: 0.5rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   width: 50%;
   transition: 300ms;
   align-self: flex-end;

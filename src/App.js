@@ -4,9 +4,10 @@ import { ref, onValue } from "firebase/database";
 import { db } from './config/index.js';
 import AdminDashboard from './routes/AdminDashboard.js';
 import Scores from "./routes/Scores.js"
-import './styles/globals.css';
+import Home from './routes/Home.js';
 import CreatePlayer from './routes/CreatePlayer.js';
 import { MobileContextProvider } from './context/MobileContext.js';
+import './styles/globals.css';
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
     <MobileContextProvider>
       <div className="App">
         <Routes>
-          <Route path="/hello" element={<h1>Hello</h1>} />
+          <Route path="/" element={<Home />} />
           <Route path="/scores" element={<Scores />} />
           <Route path="/create-player" element={<CreatePlayer allQueensData={allQueensData} />} />
           <Route path="/admin/scores" element={<AdminDashboard allQueensData={allQueensData} />} />

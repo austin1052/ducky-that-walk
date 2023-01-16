@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-56px);
+}
+
+.logo {
+  height: 500px;
+  margin-left: 3.5rem;
+  /* animation: 2s infinite alternate pulse;
+  animation-timing-function: linear; */
+}
+
+.duck {
+  font-size: 70px;
+  animation: 500ms infinite spin;
+  animation-timing-function: linear;
+}
+
+.link {
+  color: var(--light);
+  text-decoration: none;
+  text-transform: lowercase;
+  font-size: 2rem;
+  font-weight: 500;
+  transition: 400ms;
+  border: var(--border2);
+  border-width: 4px;
+  border-radius: var(--br);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  /* padding-top: .1rem; */
+  padding-bottom: .5rem;
+  margin-top: 4rem;
+}
+
+.link:hover {
+  color: var(--accent);
+  transform: scale(1.1);
+  /* transition: 400ms; */
+}
+
+@media only screen and (max-width: 768px) {
+  .logo {
+    height: 300px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  33% {
+    transform: scale(1.05);
+  }
+
+  66% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform:rotate(360deg);
+  }
+  to {
+    transform:rotate(0deg);
+  }
+}
