@@ -1,6 +1,5 @@
 import { ref, set, onValue } from "firebase/database";
 import { db } from '../config/index.js';
-import { mergeSort } from "./index.js";
 
 export function writeUserData(userId, name) {
   set(ref(db, 'users/' + userId), {

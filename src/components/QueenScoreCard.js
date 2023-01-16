@@ -2,10 +2,9 @@ import Image from './Image.js';
 import styles from '../styles/QueenScoreCard.module.css';
 import PointBar from './PointBar.js';
 
-
 export default function QueenScoreCard({ queen, setAllQueens }) {
 
-  const { name, menuOpen, points } = queen[1]
+  const { name, menuOpen } = queen[1]
 
   function toggleMenu() {
 
@@ -23,7 +22,6 @@ export default function QueenScoreCard({ queen, setAllQueens }) {
             <Image queen={queen} />
           </div>
           <div className={styles.queenName}>{name}</div>
-          {/* <div className={styles.points}>{points}</div> */}
         </div>
         <PointBar menuOpen={menuOpen} setAllQueens={setAllQueens} queen={queen} />
       </div>
