@@ -58,7 +58,6 @@
  .scoreCardContainer {
   padding: 0.5rem;
   margin-bottom: var(--marginMobile);
-  max-height: 80px;
  }
  
  .queenName {
