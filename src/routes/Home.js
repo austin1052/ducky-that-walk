@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <img src={logo} className={styles.logo} alt="ducky that walk" />
-      {/* <div className={styles.duck}>🦆</div> */}
+      <div className={styles.duck}>🦆</div>
       <Link to="/scores" className={styles.link}>View Scores</Link>
     </div>
   )
