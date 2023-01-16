@@ -6,22 +6,11 @@ import AdminDashboard from './routes/AdminDashboard.js';
 import Scores from "./routes/Scores.js"
 import './styles/globals.css';
 import CreatePlayer from './routes/CreatePlayer.js';
+import { MobileContextProvider } from './context/MobileContext.js';
 
 
 function App() {
-  const [width, setWidth] = useState(undefined);
-  const [isMobile, setIsMobile] = useState(true);
   const [allQueensData, setAllQueensData] = useState([])
-
-  useEffect(() => {
-    setWidth(window.innerWidth)
-    const handleResize = () => setWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    width > 768 ? setIsMobile(false) : setIsMobile(true);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [width]);
 
   useEffect(() => {
     const queensRef = ref(db, "queens/");
@@ -34,14 +23,16 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/hello" element={<h1>Hello</h1>} />
-        <Route path="/scores" element={<Scores isMobile={isMobile} />} />
-        <Route path="/create-player" element={<CreatePlayer allQueensData={allQueensData} />} />
-        <Route path="/admin/scores" element={<AdminDashboard />} />
-      </Routes>
-    </div>
+    <MobileContextProvider>
+      <div className="App">
+        <Routes>
+          <Route path="/hello" element={<h1>Hello</h1>} />
+          <Route path="/scores" element={<Scores />} />
+          <Route path="/create-player" element={<CreatePlayer allQueensData={allQueensData} />} />
+          <Route path="/admin/scores" element={<AdminDashboard allQueensData={allQueensData} />} />
+        </Routes>
+      </div>
+    </MobileContextProvider>
   );
 }
 

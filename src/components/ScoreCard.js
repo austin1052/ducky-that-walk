@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/ScoreCard.module.css'
 
-export default function Card({ player, idx }) {
+export default function ScoreCard({ player, idx }) {
   idx = idx + 1;
 
   const { name, totalPoints, houseName } = player[1]

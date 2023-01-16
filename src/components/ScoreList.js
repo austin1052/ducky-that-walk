@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../styles/ScoreList.module.css';
 
-export default function List({ player, idx, isMobile }) {
+export default function ScoreList({ player, idx, isMobile }) {
 
   const { name, houseName, totalPoints } = player[1];
   return (

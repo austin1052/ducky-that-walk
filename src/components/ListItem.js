@@ -1,5 +1,5 @@
 import { isAlreadySelected } from '../utils/index.js';
-import styles from '../styles/ListItem.module.css';
+import styles from '../styles/ScoreListItem.module.css';
 
 export default function ListItem({ queen, setQueensList, checkCount, category, max }) {
 
@@ -29,7 +29,7 @@ export default function ListItem({ queen, setQueensList, checkCount, category, m
     if (checkCount >= max && !queen.selected[category]) {
       listStyle = `${styles.listItem} ${styles.disabled}`;
     }
-    return listStyle
+    return listStyle;
   }
 
   const listStyle = setListItemStyle(queen);

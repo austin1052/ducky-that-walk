@@ -17,12 +17,11 @@ export default function QueenSelection({ queensList, setQueensList, options }) {
     setCheckCount(countSelected(queensList, category));
   }, [queensList, category])
 
-
   return (
     <>
-      <label htmlFor="Select players">{label}</label>
+      <label htmlFor="Select players"></label>
       <div className={styles.selectButton} onClick={toggleSelectMenu} aria-label={label}>
-        <div aria-label="select one winner" className={styles.buttonText}>None Selected</div>
+        <div aria-label={label} className={styles.buttonText}>{label}</div>
         <span className={menuOpen ? `${styles.selectArrow} ${styles.open}` : `${styles.selectArrow}`}></span>
       </div>
       <div className={styles.listContainer}>

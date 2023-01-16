@@ -1,15 +1,13 @@
-const Image = ({ id, name }) => {
-  try {
-    // Import image on demand
-    const image = require(`assets/${id}`);
+import { queenImages } from "../assets/images.js"
 
-    // If the image doesn't exist. return null
-    if (!image) return null;
-    return <img src={image.default} alt={name} />;
-  } catch (error) {
-    console.log(`Image with name "${name}" does not exist`);
-    return null;
-  }
+const Image = ({ queen }) => {
+
+  const id = queen[0];
+  const name = queen[1].name;
+  const image = queenImages[id];
+  return (
+    <img src={image} alt={name} />
+  )
 };
 
 export default Image;

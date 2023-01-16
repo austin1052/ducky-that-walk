@@ -1,0 +1,126 @@
+.container {
+  left: -2px;
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 0.5rem;
+  height: 0;
+  background: var(--dark);
+  z-index: 10;
+  width: calc(100% + 4px);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  margin-top: 0.5rem;
+  height: auto;
+  transition: 500ms;
+}
+
+.container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding-inline: 0.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: var(--border1);
+  border-radius: var(--br);
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.container > div:hover {
+  transition: border 400ms;
+}
+
+.button {
+  min-width: 40px;
+}
+
+.button:hover {
+  transition: 300ms !important;
+}
+
+.winner:hover {
+  border: 1px solid var(--goldBorder) !important;
+}
+
+.mini:hover {
+  border: 1px solid var(--silverBorder) !important;
+}
+
+.top:hover {
+  border: 1px solid var(--greenBorder) !important;
+}
+
+.bottom:hover {
+  border: 1px solid var(--orangeBorder) !important;
+}
+
+.eliminated:hover {
+  border: 1px solid var(--redBorder) !important;
+}
+
+.container > .cancelButton {
+  grid-column: 6/7;
+  border: 1px solid var(--redBorder);
+  font-weight: 300;
+}
+
+.container > .cancelButton:hover {
+  background: var(--red);
+}
+
+.container > .submitButton {
+  grid-column: 1/2;
+  border: 1px solid var(--greenBorder);
+  font-weight: 300;
+}
+
+.container > .submitButton:hover {
+  background: var(--green);
+}
+
+.container > .submitButton > div {
+  height: 15px;
+  width: 8px;
+  border: solid var(--light);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.container > .cancelButton > div {
+  height: 15px;
+  width: 2px;
+  background: var(--light);
+  transform: translateY(1.5px) rotate(45deg);
+}
+
+.container > .cancelButton > div:after {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 2px;
+  background: var(--light);
+  transform: rotate(-90deg);
+}
+
+.span2 {
+  grid-column: span 2;
+}
+
+.span3 {
+  grid-column: span 3;
+}
+
+.spanAll {
+  grid-column: 1/-1;
+}

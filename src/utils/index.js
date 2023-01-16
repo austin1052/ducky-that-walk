@@ -40,3 +40,38 @@ export function isAlreadySelected(queen) {
   }
   return false;
 }
+
+export function createColumnGroups(queens, isMobile) {
+
+  const columnGroups = {};
+
+  if (isMobile) {
+    columnGroups["1"] = [];
+    columnGroups["2"] = [];
+    queens && queens.forEach((queen, i) => {
+      if (i % 2 === 0) {
+        columnGroups["1"].push(queen)
+      }
+      if (i % 2 === 1) {
+        columnGroups["2"].push(queen)
+      }
+    })
+  }
+  if (!isMobile) {
+    columnGroups["1"] = [];
+    columnGroups["2"] = [];
+    columnGroups["3"] = [];
+    queens && queens.forEach((queen, i) => {
+      if (i % 3 === 0) {
+        columnGroups["1"].push(queen)
+      }
+      if (i % 3 === 1) {
+        columnGroups["2"].push(queen)
+      }
+      if (i % 3 === 2) {
+        columnGroups["3"].push(queen)
+      }
+    })
+  }
+  return columnGroups;
+}

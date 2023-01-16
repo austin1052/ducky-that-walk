@@ -6,11 +6,23 @@
   --mid: #5A5A5A;
   --light: rgb(255, 207, 231);
   --lightOpaque: rgb(255, 207, 231, 0.1);
-  /* --accent: rgba(207, 51, 129, 0.5);  */
   --accent: rgba(220, 125, 180);
-
-  --br: 3px;
-  --border: 2px solid var(--lightOpaque);
+  --br: 4px;
+  --border1: 1px solid var(--lightOpaque);
+  --border2: 2px solid var(--lightOpaque);
+  --bs: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+  --green: rgb(14, 160, 58, 0.2);
+  --greenBorder: rgb(14, 160, 58, 0.5);
+  --red: rgb(200, 70, 70, 0.2);
+  --redBorder: rgb(200, 70, 70, 0.5);
+  --gold: rgb(251, 211, 9, 0.2);
+  --goldBorder: rgb(251, 211, 9, 0.4);
+  --silver: rgb(130, 130, 130, 0.2);
+  --silverBorder: rgb(130, 130, 130, 0.5);
+  --orange: rgb(232, 164, 69, 0.2);
+  --orangeBorder: rgb(232, 164, 69, 0.5);
+  --marginMobile: 0.50rem;
+  --marginDesktop: 0.75rem;
 }
 
 * {
@@ -23,23 +35,29 @@
   color: var(--light);
 }
 
-body {
-  min-height: 100vh;
-  background: rgb(10,10,10);
-  background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(22,22,22,1) 100%);
+#root {
+  display: flex;
+  justify-content: center;
   margin-top: 2rem;
 }
 
 .App {
   width: 100%;
+  max-width: 1000px;
   display: flex;
   justify-content: center;
-  padding-inline: 0.5rem;
+  padding-inline: var(--marginDesktop);
 }
 
-@media only screen and (min-width: 768px) {
-  #root {
-    padding-inline: 3rem;
+body {
+  min-height: 100vh;
+  background: rgb(10,10,10);
+  background: linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(22,22,22,1) 100%);
+}
+
+@media only screen and (max-width: 768px) {
+  .App {
+    padding-inline: var(--marginMobile);
   }
 }
 

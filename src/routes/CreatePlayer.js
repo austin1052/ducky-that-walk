@@ -90,7 +90,7 @@ export default function CreatePlayer({ allQueensData }) {
 
   function toggleForm(event) {
     event.preventDefault();
-    setUserFormActive(!userFormActive)
+    setUserFormActive(!userFormActive);
   }
 
   setFormPosition();
@@ -100,14 +100,14 @@ export default function CreatePlayer({ allQueensData }) {
       <div className={styles.container} >
         <form className={styles.form}>
           <div className={userFormCSS}>
-            <label htmlFor="username">Username</label>
-            <input type="text" id="username" name="username" value={username} onChange={usernameChangeHandler} />
-            <label htmlFor="first-name">First Name</label>
-            <input type="text" id="first-name" name="first-name" value={name} onChange={nameChangeHandler} />
-            <label htmlFor="house-name">House Name</label>
-            <input type="text" id="house-name" name="house-name" value={houseName} onChange={houseNameChangeHandler} />
+            <label htmlFor="username" aria-label="username"></label>
+            <input type="text" id="username" name="username" value={username} onChange={usernameChangeHandler} placeholder="Username" />
+            <label htmlFor="first-name" aria-label="first name"></label>
+            <input type="text" id="first-name" name="first-name" value={name} onChange={nameChangeHandler} placeholder="First Name" />
+            <label htmlFor="house-name" aria-label="house name"></label>
+            <input type="text" id="house-name" name="house-name" value={houseName} onChange={houseNameChangeHandler} placeholder="House Name" />
             <div className={styles.buttons}>
-              <button className={styles.submitButton} onClick={toggleForm}>Choose Team</button>
+              <div className={styles.submitButton} onClick={toggleForm} role="button" aria-label="team selection">Choose Team</div>
             </div>
           </div>
           <div className={queenFormCSS}>
@@ -116,11 +116,11 @@ export default function CreatePlayer({ allQueensData }) {
             <QueenSelection queensList={queensList} setQueensList={setQueensList} options={options.winnerOptions} />
             <div className={styles.buttons}>
               <div className={styles.backButton} onClick={toggleForm}></div>
-              <button className={styles.submitButton} onClick={handleSubmit}>Create Team</button>
+              <div className={styles.submitButton} onClick={handleSubmit} role="button" aria-label="create team">Create Team</div>
             </div>
           </div>
         </form>
-      </div>
+      </div >
     </>
   );
 };

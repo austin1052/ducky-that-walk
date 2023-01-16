@@ -17,8 +17,8 @@
   align-items: center;
   width: 14px;
   height: 14px;
-  border: var(--border);
-  border-radius: 2px;
+  border: var(--border2);
+  border-radius: var(--br);
   margin-right: 1rem;
   transform: translateY(1px);
 }
@@ -38,11 +38,4 @@
 
 .listItem.disabled .itemText{
   color: var(--mid);
-}
-.listItem.disabled .checkbox{
-  /* border-color: var(--mid); */
-}
-
-.itemText {
-  /* font-weight: 400; */
 }

@@ -13,10 +13,9 @@ function createInitialQueens(queenData) {
   const queenIDs = Object.keys(queenData);
 
   queenIDs.map((queenID) => {
-    const { name, totalPoints, active } = queenData[queenID]
+    const { name, active } = queenData[queenID]
     return set(ref(db, 'queens/' + queenID), {
       name,
-      totalPoints,
       active
     })
   }

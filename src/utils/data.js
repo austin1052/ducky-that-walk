@@ -22,97 +22,81 @@ export const options = {
 export const queenData = {
   amethyst: {
     name: "Amethyst",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   anetra: {
     name: "Anetra",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   auramayari: {
     name: "Aura Mayari",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   irenedubois: {
     name: "Irene Dubois",
-    totalPoints: 0,
     active: false,
     stans: []
   },
   jax: {
     name: "Jax",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   looseyladuca: {
     name: "Loosey LaDuca",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   luxxnoirlondon: {
     name: "Luxx Noir London",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   mbdf: {
     name: "Malaysia Babydoll Foxx",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   marciax3: {
     name: "Marcia Marcia Marcia",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   mib: {
     name: "Mistress Isabelle Brooks",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   princesspoppy: {
     name: "Princess Poppy",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   robinfierce: {
     name: "Robin Fierce",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   salinaestitties: {
     name: "Salina EsTitties",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   sashacolby: {
     name: "Sasha Colby",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   spice: {
     name: "Spice",
-    totalPoints: 0,
     active: true,
     stans: []
   },
   sugar: {
     name: "Sugar",
-    totalPoints: 0,
     active: true,
     stans: []
   }
@@ -180,3 +164,30 @@ export const playerData = [
     totalPoints: 68
   }
 ]
+
+
+export const buttonColors = {
+  winner: {
+    borderColor: "var(--lightOpaque)",
+    background: "var(--gold)"
+  },
+  mini: {
+    borderColor: "rgb(130, 130, 130, 0.5)",
+    background: "var(--silver)"
+  },
+  top: {
+    borderColor: "rgb(14, 160, 58, 0.5)",
+    background: "var(--green)"
+  },
+  bottom: {
+    borderColor: "rgb(232, 164, 69, 0.5)",
+    background: "var(--orange)"
+  },
+  eliminated: {
+    borderColor: "rgb(200, 70, 70, 0.5)",
+    background: "var(--red)"
+  },
+  grey: {
+    borderColor: "var(--lightOpaque)"
+  }
+}
