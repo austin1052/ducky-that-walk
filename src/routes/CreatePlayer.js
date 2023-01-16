@@ -19,18 +19,17 @@ export default function CreatePlayer({ allQueensData }) {
     const queens = []
     queenIDs.forEach((id) => {
       queens.push({
+        id,
+        name: allQueensData[id].name,
         selected: {
           winner: false,
           slayer: false,
           player: false
-        },
-        name: allQueensData[id].name,
-        id
+        }
       });
     })
     setQueensList(queens);
   }, [allQueensData])
-
 
   //returns [[queenID, multiplier]] ---> [["marciax3", 2], ["mbdf", 1]]
   function setPlayerQueens() {

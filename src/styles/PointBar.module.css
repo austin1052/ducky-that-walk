@@ -114,6 +114,10 @@
   transform: rotate(-90deg);
 }
 
+.disabled {
+  color: var(--lightOpaque);
+}
+
 .span2 {
   grid-column: span 2;
 }

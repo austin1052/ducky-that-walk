@@ -33,9 +33,15 @@ export function countSelected(queensList, category) {
   return count;
 }
 
-export function isAlreadySelected(queen) {
+export function isAlreadySelected(queen, category) {
   const numSelected = Object.values(queen.selected).filter(Boolean).length;
   if (numSelected > 0) {
+    if (queen.selected.mini && numSelected < 2) {
+      return false
+    }
+    if (category === "mini") {
+      return false
+    }
     return true;
   }
   return false;

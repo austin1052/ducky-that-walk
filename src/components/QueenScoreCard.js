@@ -4,12 +4,12 @@ import PointBar from './PointBar.js';
 
 export default function QueenScoreCard({ queen, setAllQueens }) {
 
-  const { name, menuOpen } = queen[1]
+  const { name, menuOpen } = queen
 
   function toggleMenu() {
 
-    if (!queen[1].menuOpen) {
-      queen[1].menuOpen = true
+    if (!queen.menuOpen) {
+      queen.menuOpen = true
     }
     setAllQueens(queens => [...queens])
   }

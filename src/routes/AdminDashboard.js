@@ -6,7 +6,6 @@ import { createColumnGroups } from '../utils/index.js'
 export default function AdminDashboard({ allQueensData }) {
   const [allQueens, setAllQueens] = useState()
   const [columnGroups, setColumnGroups] = useState()
-
   const isMobile = useContext(MobileContext)
 
   useEffect(() => {
@@ -15,11 +14,19 @@ export default function AdminDashboard({ allQueensData }) {
     queenIDs.forEach((id) => {
       const { name, active } = allQueensData[id];
       if (active) {
-        queens.push([id, {
-          name: name,
+        queens.push({
+          id,
+          name,
           points: 0,
-          menuOpen: false
-        }])
+          menuOpen: false,
+          selected: {
+            winner: false,
+            mini: false,
+            top: false,
+            bottom: false,
+            eliminated: false
+          }
+        })
       }
     })
     setAllQueens(queens)
@@ -35,7 +42,7 @@ export default function AdminDashboard({ allQueensData }) {
       {columnGroups &&
         Object.keys(columnGroups).map((group, i) => {
           return (
-            <QueenColumn queens={columnGroups[group]} key={i} setAllQueens={setAllQueens} allQueens={allQueens} />
+            <QueenColumn queens={columnGroups[group]} key={i} setAllQueens={setAllQueens} />
           )
         })}
     </>
