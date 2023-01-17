@@ -31,7 +31,7 @@ export default function QueenScoreCard({ queen, setAllQueens }) {
           <div className={styles.queenName}>{name}</div>
         </div>
         {
-          points > 0 &&
+          (points > 0 || queen.selected.bottom) &&
           <div className={styles.pointsContainer}>
             <div className={styles.points}>+{points}</div>
           </div>
