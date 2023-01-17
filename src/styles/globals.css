@@ -21,6 +21,8 @@
   --silverBorder: rgb(130, 130, 130, 0.5);
   --orange: rgb(232, 164, 69, 0.2);
   --orangeBorder: rgb(232, 164, 69, 0.5);
+  --yellow: rgb(255, 240, 14, 0.2);
+  --yellowBorder: rgb(255, 240, 14, 0.5);
   --marginMobile: 0.50rem;
   --marginDesktop: 0.75rem;
 }

@@ -168,26 +168,57 @@ export const playerData = [
 
 export const buttonColors = {
   winner: {
-    borderColor: "var(--lightOpaque)",
+    borderColor: "var(--goldBorder)",
     background: "var(--gold)"
   },
   mini: {
-    borderColor: "rgb(130, 130, 130, 0.5)",
+    borderColor: "var(--silverBorder)",
     background: "var(--silver)"
   },
   top: {
-    borderColor: "rgb(14, 160, 58, 0.5)",
+    borderColor: "var(--greenBorder)",
     background: "var(--green)"
   },
+  low: {
+    borderColor: "var(--yellowBorder)",
+    background: "var(--yellow)"
+  },
   bottom: {
-    borderColor: "rgb(232, 164, 69, 0.5)",
+    borderColor: "var(--orangeBorder)",
     background: "var(--orange)"
   },
   eliminated: {
-    borderColor: "rgb(200, 70, 70, 0.5)",
+    borderColor: "var(--redBorder)",
     background: "var(--red)"
   },
   grey: {
     borderColor: "var(--lightOpaque)"
   }
+}
+
+export const pointValues = {
+  winner: 10,
+  mini: 2,
+  top: 7.5,
+  low: 2.5,
+  bottom: 0,
+  eliminated: 0
+}
+
+export const initialCategories = {
+  winner: false,
+  mini: false,
+  top: false,
+  low: false,
+  bottom: false,
+  eliminated: false
+}
+
+export const initialButtonStyles = {
+  winner: buttonColors.grey,
+  mini: buttonColors.grey,
+  top: buttonColors.grey,
+  bottom: buttonColors.grey,
+  low: buttonColors.grey,
+  eliminated: buttonColors.grey
 }

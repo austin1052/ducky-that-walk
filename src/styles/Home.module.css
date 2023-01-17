@@ -32,7 +32,6 @@
   border-radius: var(--br);
   padding-left: 1rem;
   padding-right: 1rem;
-  /* padding-top: .1rem; */
   padding-bottom: .5rem;
   margin-top: 4rem;
 }
@@ -40,7 +39,6 @@
 .link:hover {
   color: var(--accent);
   transform: scale(1.1);
-  /* transition: 400ms; */
 }
 
 @media only screen and (max-width: 768px) {

@@ -6,7 +6,7 @@
   grid-template-rows: 1fr 1fr;
   gap: 0.5rem;
   height: 0;
-  background: var(--dark);
+  background: none;
   z-index: 10;
   width: calc(100% + 4px);
   visibility: hidden;
@@ -60,6 +60,10 @@
 
 .top:hover {
   border: 1px solid var(--greenBorder) !important;
+}
+
+.low:hover {
+  border: 1px solid var(--yellowBorder) !important;
 }
 
 .bottom:hover {
@@ -124,8 +128,4 @@
 
 .span3 {
   grid-column: span 3;
-}
-
-.spanAll {
-  grid-column: 1/-1;
 }

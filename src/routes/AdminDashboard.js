@@ -24,6 +24,7 @@ export default function AdminDashboard({ allQueensData }) {
             mini: false,
             top: false,
             bottom: false,
+            low: false,
             eliminated: false
           }
         })
@@ -49,18 +50,3 @@ export default function AdminDashboard({ allQueensData }) {
 
   )
 }
-
-
-// click on "mini"
-// mini will highlight correct color
-// click submit
-// send update scores to /queens/:queenID/points
-// set key to week name "week1", "week2"
-// set value to point value connected to "mini"
-//
-
-
-// when a new week is selected keep track of all updates in hash map
-// every queen starts with 0
-// scores = {queenID: 0, queenID: 0}
-// add new points to scores[queenID] and send sum to database
