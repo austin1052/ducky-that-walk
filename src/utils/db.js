@@ -20,12 +20,13 @@ export function createNewPlayer(playerData) {
   })
 }
 
-export function updatePoints(allQueens, week) {
+export function updateWeeklyPoints(allQueens, week) {
   const updatedQueensList = []
   if (week !== undefined) {
     allQueens.forEach((queen) => {
       const { id, points } = queen
       if (points > 0) {
+        updateTotalPoints(queen);
         let currentPoints = 0;
         const dbRef = ref(getDatabase())
         get(child(dbRef, `queenPoints/${id}/${week}`)).then((snapshot) => {
@@ -53,6 +54,25 @@ export function updatePoints(allQueens, week) {
     alert("You can only update points when the episode is airing")
   }
   return updatedQueensList;
+}
+
+export function updateTotalPoints(queen) {
+  const { id, points } = queen;
+  let currentPoints = 0;
+  const dbRef = ref(getDatabase())
+  get(child(dbRef, `queenPoints/${id}/totalPoints`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      currentPoints = snapshot.val()
+    } else {
+      console.log("No previous points")
+    }
+    const totalPoints = currentPoints + points
+    update(ref(db, 'queenPoints/' + id), {
+      totalPoints
+    })
+  }).catch((error) => {
+    console.error(error)
+  })
 }
 
 // addPlayer(players);

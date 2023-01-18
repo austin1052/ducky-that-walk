@@ -1,14 +1,19 @@
 .container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
   border-bottom: var(--border2);
 }
 
+.container > h1 {
+  font-weight: 700;
+}
+
 .submit {
   border: 2px solid var(--greenBorder);
+  background: var(--green);
   border-radius: var(--br);
   padding: 0.5rem;
   text-transform: lowercase;
@@ -16,11 +21,11 @@
 }
 
 .submit:hover {
-  background: var(--green);
+  background: var(--greenBorder);
 }
 
 @media only screen and (max-width: 768px) {
-  .container {
-    /* margin-bottom: 1rem; */
+  .container > h1 {
+    font-size: 1.5rem;
   }
 }
