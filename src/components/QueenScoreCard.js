@@ -4,17 +4,18 @@ import PointBar from './PointBar.js';
 
 export default function QueenScoreCard({ queen, setAllQueens }) {
 
-  const { name, menuOpen, points } = queen
-
-  // if (queen.id === "marciax3") {
-  //   queen.points = 5
-  // }
+  const { id, name, points, menuOpen } = queen;
 
   function toggleMenu() {
     if (!queen.menuOpen) {
-      queen.menuOpen = true
+      const updatedQueen = { ...queen, menuOpen: true }
+      setAllQueens(queens => {
+        return queens.map((q) => {
+          if (q.id !== id) return q
+          return updatedQueen
+        })
+      })
     }
-    setAllQueens(queens => [...queens])
   }
 
   return (

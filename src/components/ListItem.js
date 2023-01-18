@@ -1,5 +1,5 @@
 import { isAlreadySelected } from '../utils/index.js';
-import styles from '../styles/ScoreListItem.module.css';
+import styles from '../styles/Form/Dropdown.module.css';
 
 export default function ListItem({ queen, setQueensList, checkCount, category, max }) {
 

@@ -20,9 +20,9 @@ function App() {
       if (snapshot.exists()) {
         const data = snapshot.val()
         setAllQueensData(data)
+        setIsLoading(false)
       }
     })
-    setIsLoading(false)
   }, [])
 
   return (

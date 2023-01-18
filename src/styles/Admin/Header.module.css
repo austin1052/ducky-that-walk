@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: var(--border2);
+}
+
+.submit {
+  border: 2px solid var(--greenBorder);
+  border-radius: var(--br);
+  padding: 0.5rem;
+  text-transform: lowercase;
+  transition: 400ms;
+}
+
+.submit:hover {
+  background: var(--green);
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    /* margin-bottom: 1rem; */
+  }
+}

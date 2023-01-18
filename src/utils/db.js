@@ -1,29 +1,6 @@
-import { ref, set, onValue } from "firebase/database";
 import { db } from '../config/index.js';
-
-export function writeUserData(userId, name) {
-  set(ref(db, 'users/' + userId), {
-    username: name,
-  });
-}
-
-export function getAllQueens() {
-  const queenRef = ref(db, 'queens/');
-  onValue(queenRef, (snapshot) => {
-    const queenData = snapshot.val();
-    return queenData;
-  });
-}
-
-export function addPlayer(players) {
-  const { username, name, houseName, totalPoints } = players[0];
-  const playerRef = ref(db, "testPlayers/" + username);
-  set(playerRef, {
-    name,
-    houseName,
-    totalPoints
-  })
-}
+import { set, get, ref, child, getDatabase, update } from 'firebase/database'
+import { initialCategories } from "./data.js"
 
 export function createNewPlayer(playerData) {
   const { username, name, houseName, queens } = playerData;
@@ -41,6 +18,41 @@ export function createNewPlayer(playerData) {
       multiplier: queen[1]
     })
   })
+}
+
+export function updatePoints(allQueens, week) {
+  const updatedQueensList = []
+  if (week !== undefined) {
+    allQueens.forEach((queen) => {
+      const { id, points } = queen
+      if (points > 0) {
+        let currentPoints = 0;
+        const dbRef = ref(getDatabase())
+        get(child(dbRef, `queenPoints/${id}/${week}`)).then((snapshot) => {
+          if (snapshot.exists()) {
+            currentPoints = snapshot.val()
+          } else {
+            console.log("No previous points")
+          }
+          const totalPoints = currentPoints + points
+          update(ref(db, 'queenPoints/' + id), {
+            [week]: totalPoints
+          })
+        }).catch((error) => {
+          console.error(error)
+        })
+      }
+      if (queen.selected.eliminated) {
+        update(ref(db, 'queens/' + id), {
+          active: false
+        })
+      }
+      updatedQueensList.push({ ...queen, points: 0, selected: initialCategories, menuOpen: false })
+    })
+  } else {
+    alert("You can only update points when the episode is airing")
+  }
+  return updatedQueensList;
 }
 
 // addPlayer(players);

@@ -1,7 +1,9 @@
 import { useEffect, useState, useContext } from 'react'
+import AdminHeader from '../components/AdminHeader.js'
 import QueenColumn from "../components/QueenColumn.js"
 import { MobileContext } from "../context/MobileContext.js"
 import { createColumnGroups } from '../utils/index.js'
+import styles from "../styles/Admin/Dashboard.module.css"
 
 export default function AdminDashboard({ allQueensData }) {
   const [allQueens, setAllQueens] = useState()
@@ -39,14 +41,17 @@ export default function AdminDashboard({ allQueensData }) {
   }, [allQueens, isMobile])
 
   return (
-    <>
-      {columnGroups &&
-        Object.keys(columnGroups).map((group, i) => {
-          return (
-            <QueenColumn queens={columnGroups[group]} key={i} setAllQueens={setAllQueens} />
-          )
-        })}
-    </>
+    <div className={styles.container}>
+      <AdminHeader allQueens={allQueens} setAllQueens={setAllQueens} />
+      <div className={styles.columnContainer}>
+        {columnGroups &&
+          Object.keys(columnGroups).map((group, i) => {
+            return (
+              <QueenColumn queens={columnGroups[group]} key={i} setAllQueens={setAllQueens} />
+            )
+          })}
+      </div>
+    </div>
 
   )
 }

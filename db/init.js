@@ -1,11 +1,13 @@
+// need to comment out styles import and pointButtonStyles in data.js for this to run 
+
 import { ref, set } from "firebase/database"
-import { db } from "../src/config/index.js"
-import { queenData, playerData } from "../src/utils/data.js";
+import { db } from "../src/config/local.js"
+import { queenData, players } from "../src/utils/data.js";
 
 
 function buildDB() {
   createInitialQueens(queenData);
-  createTestPlayers(players);
+  createTestPlayers(players, "week2");
 }
 
 function createInitialQueens(queenData) {
@@ -16,7 +18,7 @@ function createInitialQueens(queenData) {
     const { name, active } = queenData[queenID]
     return set(ref(db, 'queens/' + queenID), {
       name,
-      active
+      active,
     })
   }
   )
@@ -51,71 +53,5 @@ function createTestPlayers(players, currentWeek) {
     }
   })
 }
-
-const players = [
-  {
-    username: "carson",
-    name: "Carson",
-    houseName: "Big Juicy Ass",
-    queens: [["sashacolby", 3], ["looseyladuca", 2], ["mib", 2], ["anetra", 1], ["irenedubois", 1], ["princesspoppy", 1]]
-  },
-  {
-    username: "eric",
-    name: "Eric",
-    houseName: "Spagliato",
-    queens: [["looseyladuca", 3], ["robinfierce", 2], ["mib", 2], ["salinaestitties", 1], ["jax", 1], ["irenedubois", 1]]
-  },
-  {
-    username: "jack",
-    name: "Jack",
-    houseName: "The House Down",
-    queens: [["sashacolby", 3], ["irenedubois", 2], ["mib", 2], ["salinaestitties", 1], ["jax", 1], ["irenedubois", 1]]
-  },
-  {
-    username: "alex",
-    name: "Alex",
-    houseName: "Alex's Queen Team",
-    queens: [["princesspoppy", 3], ["irenedubois", 2], ["mbdf", 2], ["salinaestitties", 1], ["sashacolby", 1], ["auramayari", 1]]
-  },
-  {
-    username: "jordan",
-    name: "Jordan",
-    houseName: "HOUSE on Fox Starring Stuart Little Star Hugh Laurie",
-    queens: [["sashacolby", 3], ["luxxnoirlondon", 2], ["marciax3", 2], ["mib", 1], ["salinaestitties", 1], ["looseyladuca", 1]]
-  },
-  {
-    username: "caroline",
-    name: "Caroline",
-    houseName: "savage",
-    queens: [["irenedubois", 3], ["sashacolby", 2], ["salinaestitties", 2], ["mib", 1], ["luxxnoirlondon", 1], ["looseyladuca", 1]]
-  },
-  {
-    username: "timiki",
-    name: "Timiki",
-    houseName: "the Mouse",
-    queens: [["mib", 3], ["anetra", 2], ["sashacolby", 2], ["jax", 1], ["salinaestitties", 1], ["auramayari", 1]]
-  },
-  {
-    username: "ariel",
-    name: "Ariel",
-    houseName: "House The Boots Down House",
-    queens: [["sashacolby", 3], ["auramayari", 2], ["mbdf", 2], ["robinfierce", 1], ["looseyladuca", 1], ["luxxnoirlondon", 1]]
-  },
-  {
-    username: "austin",
-    name: "Austin",
-    houseName: "Shartier",
-    queens: [["looseyladuca", 3], ["marciax3", 2], ["irenedubois", 2], ["salinaestitties", 1], ["spice", 1], ["mbdf", 1]]
-  },
-  {
-    username: "isabel",
-    name: "Isabel",
-    houseName: "MINIONITA",
-    queens: [["princesspoppy", 3], ["sashacolby", 2], ["salinaestittes", 2], ["mbdf", 1], ["irenedubois", 1], ["auramayari", 1]]
-  }
-]
-
-
-createTestPlayers(players, "week2");
 
 buildDB();

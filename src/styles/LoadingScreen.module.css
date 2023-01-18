@@ -16,7 +16,7 @@
 
 .duck {
   font-size: 70px;
-  animation: 500ms infinite spin;
+  animation: 700ms infinite spin;
   animation-timing-function: linear;
 }
 

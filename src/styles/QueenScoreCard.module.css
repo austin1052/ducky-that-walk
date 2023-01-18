@@ -8,10 +8,19 @@
  grid-template-rows: auto auto;
  box-shadow: var(--bs);
  max-height: 90px;
- transition: max-height 500ms;
+ transition: max-height 500ms, 400ms;
  transition-delay: 50ms;
  /* overflow: hidden; */
 }
+
+.scoreCardContainer:hover {
+  background: var(--lightOpaque);
+}
+
+.scoreCardContainer.menuOpen:hover {
+  background: none;
+}
+
 
 .infoContainer {
   width: 100%;
