@@ -5,12 +5,13 @@
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr 1fr;
   gap: 0.5rem;
-  height: 0;
+  /* height: 0; */
   background: none;
   z-index: 10;
   width: calc(100% + 4px);
   visibility: hidden;
   opacity: 0;
+  /* transform: translateY(-100%) */
 }
 
 .visible {
@@ -18,7 +19,7 @@
   opacity: 1;
   margin-top: 0.5rem;
   height: auto;
-  transition: 500ms;
+  /* transition: 500ms; */
 }
 
 .container > div {

@@ -7,10 +7,10 @@
  border-radius: var(--br);
  grid-template-rows: auto auto;
  box-shadow: var(--bs);
+ box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
  max-height: 90px;
- transition: max-height 500ms, 400ms;
- transition-delay: 50ms;
- /* overflow: hidden; */
+ transition: max-height 5s, 400ms;
+ background: var(--dark);
 }
 
 .scoreCardContainer:hover {
@@ -21,28 +21,37 @@
   background: none;
 }
 
-
 .infoContainer {
+  position: relative;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   text-align: right;
+  z-index: 20;
 }
 
 .imageContainer {
+  /* .scoreCardContainer max-height - 20 */
   width: 70px;
   height: 70px;
   grid-column: span 1;
   grid-row: span 2;
-  overflow: hidden;
   border-radius: var(--br);
   box-shadow: var(--bs);
+  object-fit: contain;
+  border: 1px solid var(--dark);
+  overflow: hidden;
+  position: relative;
 }
 
 .imageContainer img {
-  width: 100%;
-  opacity: 0.95;
+  border-radius: var(--br);
+  max-width: 100%;
+  height: 100%;
+  opacity: 0.9;
   display: block;
+  margin: auto;
+  position: relative;
 }
 
 .queenName {
@@ -68,24 +77,24 @@
 }
 
 .points {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .cross {
   position: absolute;
-  height: 7px;
-  width: 70px;
+  height: 8px;
+  width: 100px;
   background: rgb(200, 70, 70);
   z-index: 10;
-  transform: translateY(35px) rotate(45deg);
+  transform: translate(-16.5px, 30.5px) rotate(45deg);
 }
 
 .cross::after {
   content: "";
   display: block;
-  height: 7px;
-  width: 70px;
+  height: 8px;
+  width: 100px;
   background: rgb(200, 70, 70);
   z-index: 20;
   transform: rotate(90deg);
@@ -97,19 +106,28 @@
 
 @media only screen and (max-width: 768px) {
  .scoreCardContainer {
+  max-height: 75px;
   padding: 0.5rem;
   margin-bottom: var(--marginMobile);
+ }
+
+ .scoreCardContainer:hover {
+  background: var(--lightOpaque);
+}
+
+ .menuOpen {
+  max-height: 500px;
+}
+
+ .imageContainer {
+  /* .scoreCardContainer max-height - 20 */
+  width: 55px;
+  height: 55px;
  }
  
  .queenName {
   font-size: 0.9rem;
  }
-
- .imageContainer {
-  width: 60px;
-  height: 60px;
-  position: relative;
-}
 
  .pointsContainer {
   height: 25px;
@@ -119,18 +137,28 @@
  }
 
  .points {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .cross {
-  width: 60px;
-  transform: translateY(28px) rotate(45deg);
+  width: 78px;
+  transform: translate(-12.5px, 23px) rotate(45deg);
 }
 
 .cross::after {
-  width: 60px;
+  width: 78px;
   transform: rotate(90deg);
 }
 }
 
+/* @media (hover: hover)  {
+  .scoreCardContainer:hover {
+    background: var(--lightOpaque);
+  }
+  
+  .scoreCardContainer.menuOpen:hover {
+    background: none;
+  }
+}
+ */
 

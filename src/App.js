@@ -9,7 +9,6 @@ import CreatePlayer from './routes/CreatePlayer.js'
 import { MobileContextProvider } from './context/MobileContext.js'
 import './styles/globals.css'
 
-
 function App() {
   const [allQueensData, setAllQueensData] = useState([])
   const [isLoading, setIsLoading] = useState(true)

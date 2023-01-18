@@ -10,7 +10,8 @@
   --br: 4px;
   --border1: 1px solid var(--lightOpaque);
   --border2: 2px solid var(--lightOpaque);
-  --bs: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+  /* --bs: rgba(0, 0, 0, 0.2) 0px 4px 12px; */
+  --bs: rgba(0, 0, 0, 0.35) 0px 15px 25px, rgba(0, 0, 0, 0.25) 0px 5px 10px;
   --green: rgb(14, 160, 58, 0.2);
   --greenBorder: rgb(14, 160, 58, 0.5);
   --red: rgb(200, 70, 70, 0.2);

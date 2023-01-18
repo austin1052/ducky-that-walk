@@ -34,7 +34,7 @@ export default function QueenScoreCard({ queen, setAllQueens }) {
         {
           (points > 0 || queen.selected.bottom) &&
           <div className={styles.pointsContainer}>
-            <div className={styles.points}>+{points}</div>
+            <div className={styles.points}>{points}</div>
           </div>
         }
         <PointBar menuOpen={menuOpen} setAllQueens={setAllQueens} queen={queen} />
