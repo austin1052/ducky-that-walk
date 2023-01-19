@@ -1,9 +1,9 @@
 import { useEffect, useState, useContext } from 'react'
-import AdminHeader from '../components/AdminHeader.js'
-import QueenColumn from "../components/QueenColumn.js"
-import { MobileContext } from "../context/MobileContext.js"
-import { createColumnGroups } from '../utils/index.js'
-import styles from "../styles/Admin/Dashboard.module.css"
+import AdminHeader from '../../components/AdminHeader.js'
+import QueenColumn from "../../components/QueenColumn.js"
+import { MobileContext } from "../../context/MobileContext.js"
+import { createColumnGroups } from '../../utils/index.js'
+import styles from "../../styles/Admin/Dashboard.module.css"
 
 export default function AdminDashboard({ allQueensData }) {
   const [allQueens, setAllQueens] = useState()
@@ -41,7 +41,6 @@ export default function AdminDashboard({ allQueensData }) {
   }, [allQueens, isMobile])
 
   return (
-    // <div className={styles.appContainer}>
     <div className="page-container background-pink">
       <div className={styles.container}>
         <AdminHeader allQueens={allQueens} setAllQueens={setAllQueens} />

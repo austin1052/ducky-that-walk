@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { ref, onValue } from "firebase/database"
 import { db } from './config/index.js'
-import AdminDashboard from './routes/AdminDashboard.js'
+import Dashboard from './routes/Admin/Dashboard.js'
 import Scores from "./routes/Scores.js"
 import LoadingScreen from './components/LoadingScreen.js'
 import CreatePlayer from './routes/CreatePlayer.js'
@@ -38,7 +38,7 @@ function App() {
               <Route path="/log-in" element={<LogIn />} />
               <Route path="/scores" element={<Scores />} />
               <Route path="/create-player" element={<CreatePlayer allQueensData={allQueensData} />} />
-              <Route path="/admin/scores" element={<AdminDashboard allQueensData={allQueensData} />} />
+              <Route path="/admin/scores" element={<Dashboard allQueensData={allQueensData} />} />
             </Routes>
         }
       </div>

@@ -3,7 +3,7 @@
 }
 
 .topThreeContainer {
-  padding-bottom: 2rem;
+  padding-bottom: var(--marginDesktop);
   border-bottom: var(--border2);
   text-align: center;
   display: flex;

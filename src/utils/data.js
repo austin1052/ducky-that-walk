@@ -237,8 +237,8 @@ export const pointButtonStyles = {
 }
 
 export const episodeDates = {
-  testWeek4: "019",
-  week1: "006",
+  // week1: "006",
+  week1: "019",
   week2: "013",
   week3: "020",
   week4: "027",
