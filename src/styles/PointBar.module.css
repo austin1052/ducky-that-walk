@@ -5,13 +5,11 @@
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr 1fr;
   gap: 0.5rem;
-  /* height: 0; */
   background: none;
-  z-index: 10;
-  width: calc(100% + 4px);
+  z-index: -10;
   visibility: hidden;
   opacity: 0;
-  /* transform: translateY(-100%) */
+  transform: translateY(-100%);
 }
 
 .visible {
@@ -19,7 +17,9 @@
   opacity: 1;
   margin-top: 0.5rem;
   height: auto;
-  /* transition: 500ms; */
+  transform: translateY(0%);
+  transition: 300ms;
+  /* transition-delay: 200ms; */
 }
 
 .container > div {
@@ -38,6 +38,7 @@
   text-transform: lowercase;
   cursor: pointer;
   border-color: var(--lightOpaque);
+  box-shadow: var(--bs);
 }
 
 .container > div:hover {
@@ -52,34 +53,34 @@
   transition: 300ms !important;
 }
 
-.winnerSelected {
-  border-color: var(--goldBorder);
-   background: var(--gold);
+.container > .winnerSelected {
+  border-color: var(--light);
+   background: var(--lightOpaque);
 }
 
 .winner:hover {
-  border: 1px solid var(--goldBorder) !important;
+  border: 1px solid var(--light);
 }
 
-.miniSelected {
+.container > .miniSelected {
   border-color: var(--silverBorder);
   background: var(--silver);
 }
 
 .mini:hover {
-  border: 1px solid var(--silverBorder) !important;
+  border: 1px solid var(--silverBorder);
 }
 
-.topSelected {
+.container > .topSelected {
   border-color: var(--greenBorder);
   background: var(--green);
 }
 
 .top:hover {
-  border: 1px solid var(--greenBorder) !important;
+  border: 1px solid var(--greenBorder);
 }
 
-.lowSelected {
+.container > .lowSelected {
   border-color: var(--yellowBorder);
   background: var(--yellow);
 }
@@ -88,7 +89,7 @@
   border: 1px solid var(--yellowBorder) !important;
 }
 
-.bottomSelected {
+.container > .bottomSelected {
   border-color: var(--orangeBorder);
   background: var(--orange);
 }
@@ -97,13 +98,17 @@
   border: 1px solid var(--orangeBorder) !important;
 }
 
-.eliminatedSelected {
+.bottom.disabled:hover {
+  border: 3px solid black;
+}
+
+.container > .eliminatedSelected {
   border-color: var(--redBorder);
   background: var(--red);
 }
 
 .eliminated:hover {
-  border: 1px solid var(--redBorder) !important;
+  border: 1px solid var(--redBorder);
 }
 
 .container > .cancelButton {
@@ -152,6 +157,7 @@
 
 .disabled {
   color: var(--lightOpaque);
+  pointer-events: none;
 }
 
 .span2 {

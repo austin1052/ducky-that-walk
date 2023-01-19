@@ -21,7 +21,11 @@ export const options = {
 }
 
 export const queenData = {
-  amethyst: 0,
+  amethyst: {
+    name: "Amethyst",
+    active: true,
+    stans: []
+  },
   anetra: {
     name: "Anetra",
     active: true,
@@ -69,7 +73,7 @@ export const queenData = {
   },
   princesspoppy: {
     name: "Princess Poppy",
-    active: true,
+    active: false,
     stans: []
   },
   robinfierce: {
@@ -233,7 +237,7 @@ export const pointButtonStyles = {
 }
 
 export const episodeDates = {
-  testWeek2: "018",
+  testWeek3: "019",
   week1: "006",
   week2: "013",
   week3: "020",

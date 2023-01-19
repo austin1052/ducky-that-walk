@@ -1,10 +1,9 @@
 import { useState, useEffect, useContext } from 'react';
-import ScoreCard from "../components/ScoreCard.js"
-import ScoreList from "../components/ScoreList.js"
+import Card from "../components/Scores/Card.js"
+import List from "../components/Scores/List.js"
 import { db } from '../config/index.js';
 import { ref, onValue } from "firebase/database";
-import cardStyles from '../styles/ScoreCard.module.css'
-import listStyles from '../styles/ScoreList.module.css'
+import styles from '../styles/Scores/Scores.module.css'
 import { mergeSort } from "../utils/index.js";
 import { MobileContext } from "../context/MobileContext.js"
 
@@ -32,29 +31,31 @@ export default function Scores() {
   }, [isMobile])
 
   return (
-    <div className={cardStyles.scoreContainer}>
-      {
-        topThreePlayers &&
-        <div className={cardStyles.topThreeContainer}>
+    <div className="page-container">
+      <div className={styles.container}>
+        {
+          topThreePlayers &&
+          <div className={styles.topThreeContainer}>
+            {
+              topThreePlayers.map((player, idx) => {
+                return (
+                  <Card player={player} key={player[0]} idx={idx} />
+                )
+              })
+            }
+          </div>
+        }
+        <div className={styles.listContainer}>
           {
-            topThreePlayers.map((player, idx) => {
+            otherPlayers &&
+            otherPlayers.map((player, idx) => {
+              idx = isMobile ? idx + 1 : idx + 4;
               return (
-                <ScoreCard player={player} key={player[0]} idx={idx} />
+                <List player={player} key={player[0]} idx={idx} isMobile={isMobile} />
               )
             })
           }
         </div>
-      }
-      <div className={listStyles.listContainer}>
-        {
-          otherPlayers &&
-          otherPlayers.map((player, idx) => {
-            idx = isMobile ? idx + 1 : idx + 4;
-            return (
-              <ScoreList player={player} key={player[0]} idx={idx} isMobile={isMobile} />
-            )
-          })
-        }
       </div>
     </div>
   );

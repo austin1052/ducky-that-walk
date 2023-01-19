@@ -24,33 +24,36 @@ function createInitialQueens(queenData) {
   )
 }
 
+export function createNewPlayer(playerData) {
+  const { username, name, houseName, queens } = playerData;
 
-function createTestPlayers(players, currentWeek) {
-  const week = currentWeek;
-  players.forEach(playerData => {
-    const { username, name, houseName, queens } = playerData;
-    const playerRef = ref(db, "testPlayers/" + username);
-    set(playerRef, {
-      name,
-      houseName,
-      totalPoints: 0
+  const playerRef = ref(db, "testPlayers/" + username);
+  set(playerRef, {
+    name,
+    houseName,
+    totalPoints: 0
+  })
+    .then(() => {
+      console.log(`${name} added succesfully`);
     })
-      .then(() => {
-        console.log(`${name} added succesfully`);
-      })
-      .catch((error) => {
-        console.log(`Error adding ${name}`);
-        console.error(error);
-      });
-    if (week !== undefined) {
-      queens.forEach((queen) => {
-        const queenRef = ref(db, "testPlayers/" + username + "/queens/" + queen[0]);
-        set(queenRef, {
-          multiplier: queen[1],
-          [week]: 10
-        })
-      })
-    }
+    .catch((error) => {
+      console.log(`Error adding ${name}`);
+      console.error(error);
+    });
+
+  queens.forEach((queen) => {
+    const queenRef = ref(db, "testPlayers/" + username + "/queens/" + queen[0]);
+    set(queenRef, {
+      multiplier: queen[1],
+    })
+  })
+}
+
+
+function createTestPlayers(players) {
+  // const week = currentWeek;
+  players.forEach(playerData => {
+    createNewPlayer(playerData)
   })
 }
 

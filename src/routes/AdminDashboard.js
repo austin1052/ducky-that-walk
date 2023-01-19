@@ -41,15 +41,18 @@ export default function AdminDashboard({ allQueensData }) {
   }, [allQueens, isMobile])
 
   return (
-    <div className={styles.container}>
-      <AdminHeader allQueens={allQueens} setAllQueens={setAllQueens} />
-      <div className={styles.columnContainer}>
-        {columnGroups &&
-          Object.keys(columnGroups).map((group, i) => {
-            return (
-              <QueenColumn queens={columnGroups[group]} key={i} setAllQueens={setAllQueens} />
-            )
-          })}
+    // <div className={styles.appContainer}>
+    <div className="page-container background-pink">
+      <div className={styles.container}>
+        <AdminHeader allQueens={allQueens} setAllQueens={setAllQueens} />
+        <div className={styles.columnContainer}>
+          {columnGroups &&
+            Object.keys(columnGroups).map((group, i) => {
+              return (
+                <QueenColumn queens={columnGroups[group]} key={i} setAllQueens={setAllQueens} />
+              )
+            })}
+        </div>
       </div>
     </div>
 

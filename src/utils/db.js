@@ -60,14 +60,14 @@ export function updateTotalPoints(queen) {
   const { id, points } = queen;
   let currentPoints = 0;
   const dbRef = ref(getDatabase())
-  get(child(dbRef, `queenPoints/${id}/totalPoints`)).then((snapshot) => {
+  get(child(dbRef, `queens/${id}/totalPoints`)).then((snapshot) => {
     if (snapshot.exists()) {
       currentPoints = snapshot.val()
     } else {
       console.log("No previous points")
     }
     const totalPoints = currentPoints + points
-    update(ref(db, 'queenPoints/' + id), {
+    update(ref(db, 'queens/' + id), {
       totalPoints
     })
   }).catch((error) => {

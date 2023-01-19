@@ -8,6 +8,7 @@ import LoadingScreen from './components/LoadingScreen.js'
 import CreatePlayer from './routes/CreatePlayer.js'
 import { MobileContextProvider } from './context/MobileContext.js'
 import './styles/globals.css'
+import LogIn from './routes/LogIn.js'
 
 function App() {
   const [allQueensData, setAllQueensData] = useState([])
@@ -19,7 +20,9 @@ function App() {
       if (snapshot.exists()) {
         const data = snapshot.val()
         setAllQueensData(data)
-        setIsLoading(false)
+        setTimeout(() => {
+          setIsLoading(false)
+        }, 1500)
       }
     })
   }, [])
@@ -32,6 +35,7 @@ function App() {
             <LoadingScreen /> :
             <Routes>
               {/* <Route path="/" element={<Home />} /> */}
+              <Route path="/log-in" element={<LogIn />} />
               <Route path="/scores" element={<Scores />} />
               <Route path="/create-player" element={<CreatePlayer allQueensData={allQueensData} />} />
               <Route path="/admin/scores" element={<AdminDashboard allQueensData={allQueensData} />} />

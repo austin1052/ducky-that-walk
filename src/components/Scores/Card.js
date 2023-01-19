@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/ScoreCard.module.css'
+import styles from '../../styles/Scores/Card.module.css'
 
 export default function ScoreCard({ player, idx }) {
   idx = idx + 1;

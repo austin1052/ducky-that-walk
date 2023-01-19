@@ -19,8 +19,8 @@ export default function AdminHeader({ allQueens, setAllQueens }) {
 
   return (
     <div className={headerStyles.container}>
-      <h1>Adjust Points</h1>
-      <div className={headerStyles.submit} onClick={submitPoints} role="button" aria-label="submit points">Submit Updates</div>
+      {/* <h1>Adjust Points</h1> */}
+      <div className={headerStyles.submit} onClick={submitPoints} role="button" aria-label="submit points">Submit Points</div>
     </div>
   )
 }

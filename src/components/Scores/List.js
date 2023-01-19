@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/ScoreList.module.css';
+import styles from '../../styles/Scores/List.module.css';
 
 export default function ScoreList({ player, idx, isMobile }) {
 

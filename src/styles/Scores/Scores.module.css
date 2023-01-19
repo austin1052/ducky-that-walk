@@ -1,0 +1,10 @@
+.container {
+  width: min(850px, 100%);
+}
+
+.topThreeContainer {
+  padding-bottom: 2rem;
+  border-bottom: var(--border2);
+  text-align: center;
+  display: flex;
+}

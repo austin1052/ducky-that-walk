@@ -1,15 +1,15 @@
-.scoreContainer {
+/* .pageContainer {
   display: flex;
   flex-direction: column;
   width: min(850px, 100%);
-}
+} */
 
-.topThreeContainer {
+/* .topThreeContainer {
   padding-bottom: 2rem;
   border-bottom: var(--border2);
   text-align: center;
   display: flex;
-}
+} */
 
 .container {
   display: flex;
@@ -49,3 +49,10 @@
   font-weight: 500;
   color: var(--accent);
 }
+
+/* @media only screen and (max-width: 768px) {
+  .pageContainer {
+     padding-left: var(--marginMobile);
+    padding-right: var(--marginMobile);
+  }
+} */
