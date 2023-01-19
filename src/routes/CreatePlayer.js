@@ -57,6 +57,7 @@ export default function CreatePlayer({ allQueensData }) {
     const playerData = {
       username, name, houseName, queens
     }
+
     createNewPlayer(playerData);
     resetForm();
   }

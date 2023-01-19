@@ -13,7 +13,7 @@ export default function Scores() {
   const isMobile = useContext(MobileContext);
 
   useEffect(() => {
-    const playersRef = ref(db, "testPlayers/");
+    const playersRef = ref(db, "players/");
     onValue(playersRef, (snapshot) => {
       const data = snapshot.val();
       const array = Object.entries(data)

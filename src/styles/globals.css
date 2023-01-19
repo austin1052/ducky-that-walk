@@ -72,7 +72,7 @@ body {
 }
 
 body:has(.background-pink) {
-  background-color: var(--accent);
+  background-color: var(--light);
 }
 
 @media only screen and (max-width: 768px) {

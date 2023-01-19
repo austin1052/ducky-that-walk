@@ -3,6 +3,7 @@
 import { ref, set } from "firebase/database"
 import { db } from "../src/config/local.js"
 import { queenData, players } from "../src/utils/data.js";
+import { createNewPlayer } from "../src/utils/db.js";
 
 
 function buildDB() {
@@ -11,9 +12,7 @@ function buildDB() {
 }
 
 function createInitialQueens(queenData) {
-
   const queenIDs = Object.keys(queenData);
-
   queenIDs.map((queenID) => {
     const { name, active } = queenData[queenID]
     return set(ref(db, 'queens/' + queenID), {
@@ -24,34 +23,7 @@ function createInitialQueens(queenData) {
   )
 }
 
-export function createNewPlayer(playerData) {
-  const { username, name, houseName, queens } = playerData;
-
-  const playerRef = ref(db, "testPlayers/" + username);
-  set(playerRef, {
-    name,
-    houseName,
-    totalPoints: 0
-  })
-    .then(() => {
-      console.log(`${name} added succesfully`);
-    })
-    .catch((error) => {
-      console.log(`Error adding ${name}`);
-      console.error(error);
-    });
-
-  queens.forEach((queen) => {
-    const queenRef = ref(db, "testPlayers/" + username + "/queens/" + queen[0]);
-    set(queenRef, {
-      multiplier: queen[1],
-    })
-  })
-}
-
-
 function createTestPlayers(players) {
-  // const week = currentWeek;
   players.forEach(playerData => {
     createNewPlayer(playerData)
   })
