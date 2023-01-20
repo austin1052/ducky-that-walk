@@ -1,4 +1,43 @@
 import styles from "../styles/PointBar.module.css"
+
+export const pointButtonStyles = {
+  winner: {
+    normal: `${styles.span3} ${styles.winner}`,
+    selected: `${styles.span3} ${styles.winner} ${styles.winnerSelected} `,
+    disabled: `${styles.span3} ${styles.winner} ${styles.disabled} `
+  },
+  mini: {
+    normal: `${styles.span3} ${styles.mini} `,
+    selected: `${styles.span3} ${styles.mini} ${styles.miniSelected} `,
+    disabled: `${styles.span3} ${styles.mini} ${styles.disabled} `
+  },
+  top: {
+    normal: `${styles.span3} ${styles.top} `,
+    selected: `${styles.span3} ${styles.top} ${styles.topSelected} `,
+    disabled: `${styles.span3} ${styles.top} ${styles.disabled} `
+  },
+  safe: {
+    normal: `${styles.spanAll} ${styles.safe} `,
+    selected: `${styles.spanAll} ${styles.safe} ${styles.safeSelected} `,
+    disabled: `${styles.spanAll} ${styles.safe} ${styles.disabled} `
+  },
+  bottom: {
+    normal: `${styles.span3} ${styles.bottom} `,
+    selected: `${styles.span3} ${styles.bottom} ${styles.bottomSelected} `,
+    disabled: `${styles.span3} ${styles.bottom} ${styles.disabled} `
+  },
+  low: {
+    normal: `${styles.span3} ${styles.low} `,
+    selected: `${styles.span3} ${styles.low} ${styles.lowSelected} `,
+    disabled: `${styles.span3} ${styles.low} ${styles.disabled} `
+  },
+  eliminated: {
+    normal: `${styles.span3} ${styles.eliminated} `,
+    selected: `${styles.span3} ${styles.eliminated} ${styles.eliminatedSelected} `,
+    disabled: `${styles.span3} ${styles.eliminated} ${styles.disabled} `
+  }
+}
+
 export const options = {
   playerOptions: {
     category: "player",
@@ -38,7 +77,7 @@ export const queenData = {
   },
   irenedubois: {
     name: "Irene Dubois",
-    active: false,
+    active: true,
     stans: []
   },
   jax: {
@@ -73,7 +112,7 @@ export const queenData = {
   },
   princesspoppy: {
     name: "Princess Poppy",
-    active: false,
+    active: true,
     stans: []
   },
   robinfierce: {
@@ -120,7 +159,7 @@ export const players = [
     username: "jack",
     name: "Jack",
     houseName: "The House Down",
-    queens: [["sashacolby", 3], ["irenedubois", 2], ["mib", 2], ["salinaestitties", 1], ["jax", 1], ["irenedubois", 1]]
+    queens: [["sashacolby", 3], ["irenedubois", 2], ["mib", 2], ["salinaestitties", 1], ["anetra", 1], ["marciax3", 1]]
   },
   {
     username: "alex",
@@ -162,7 +201,7 @@ export const players = [
     username: "isabel",
     name: "Isabel",
     houseName: "MINIONITA",
-    queens: [["princesspoppy", 3], ["sashacolby", 2], ["salinaestittes", 2], ["mbdf", 1], ["irenedubois", 1], ["auramayari", 1]]
+    queens: [["princesspoppy", 3], ["sashacolby", 2], ["salinaestitties", 2], ["mbdf", 1], ["irenedubois", 1], ["auramayari", 1]]
   }
 ]
 
@@ -170,6 +209,7 @@ export const pointValues = {
   winner: 10,
   mini: 2,
   top: 7.5,
+  safe: 5,
   low: 2.5,
   bottom: 0,
   eliminated: 0
@@ -203,43 +243,10 @@ export const initialCategories = {
   eliminated: false
 }
 
-export const pointButtonStyles = {
-  winner: {
-    normal: `${styles.span3} ${styles.winner}`,
-    selected: `${styles.span3} ${styles.winner} ${styles.winnerSelected} `,
-    disabled: `${styles.span3} ${styles.winner} ${styles.disabled} `
-  },
-  mini: {
-    normal: `${styles.span3} ${styles.mini} `,
-    selected: `${styles.span3} ${styles.mini} ${styles.miniSelected} `,
-    disabled: `${styles.span3} ${styles.mini} ${styles.disabled} `
-  },
-  top: {
-    normal: `${styles.span3} ${styles.top} `,
-    selected: `${styles.span3} ${styles.top} ${styles.topSelected} `,
-    disabled: `${styles.span3} ${styles.top} ${styles.disabled} `
-  },
-  bottom: {
-    normal: `${styles.span3} ${styles.bottom} `,
-    selected: `${styles.span3} ${styles.bottom} ${styles.bottomSelected} `,
-    disabled: `${styles.span3} ${styles.bottom} ${styles.disabled} `
-  },
-  low: {
-    normal: `${styles.span3} ${styles.low} `,
-    selected: `${styles.span3} ${styles.low} ${styles.lowSelected} `,
-    disabled: `${styles.span3} ${styles.low} ${styles.disabled} `
-  },
-  eliminated: {
-    normal: `${styles.span3} ${styles.eliminated} `,
-    selected: `${styles.span3} ${styles.eliminated} ${styles.eliminatedSelected} `,
-    disabled: `${styles.span3} ${styles.eliminated} ${styles.disabled} `
-  }
-}
-
 export const episodeDates = {
-  // week1: "006",
-  week1: "019",
-  week2: "013",
+  week1: "006",
+  week2: "019",
+  // week2: "013",
   week3: "020",
   week4: "027",
   week5: "103",

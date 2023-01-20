@@ -7,15 +7,15 @@ export default function QueenScoreCard({ queen, setAllQueens }) {
   const { id, name, points, menuOpen } = queen;
 
   function toggleMenu() {
-    if (!queen.menuOpen) {
-      const updatedQueen = { ...queen, menuOpen: true }
-      setAllQueens(queens => {
-        return queens.map((q) => {
-          if (q.id !== id) return q
-          return updatedQueen
-        })
+    // if (!queen.menuOpen) {
+    const updatedQueen = { ...queen, menuOpen: !menuOpen }
+    setAllQueens(queens => {
+      return queens.map((q) => {
+        if (q.id !== id) return q
+        return updatedQueen
       })
-    }
+    })
+    // }
   }
 
   return (
@@ -37,6 +37,7 @@ export default function QueenScoreCard({ queen, setAllQueens }) {
             <div className={styles.points}>{points}</div>
           </div>
         }
+        <div className={menuOpen ? `${styles.arrow} ${styles.open}` : `${styles.arrow}`}></div>
         <PointBar menuOpen={menuOpen} setAllQueens={setAllQueens} queen={queen} />
       </div>
     </>

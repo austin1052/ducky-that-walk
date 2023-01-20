@@ -114,6 +114,22 @@
   max-height: 500px;
 }
 
+.arrow {
+  height: 10px;
+  width: 10px;
+  border: solid var(--light);
+  border-width: 0 2px 2px 0;
+  border-radius: 1px;
+  margin-right: auto;
+  margin-left: auto;
+  transform: translateY(-0.75rem) rotate(45deg);
+  transition: 300ms;
+}
+
+.arrow.open {
+  transform: rotate(-135deg);
+}
+
 @media only screen and (max-width: 768px) {
  .scoreCardContainer {
   max-height: 75px;

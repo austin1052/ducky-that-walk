@@ -1,6 +1,6 @@
 // import { db } from '../config/index.js';
 import { db } from '../config/local.js';
-import { set, get, ref, child, getDatabase, update } from 'firebase/database'
+import { set, get, ref, child, getDatabase, update, increment } from 'firebase/database'
 import { initialCategories, queenPoints } from "./data.js"
 
 export function createNewPlayer(playerData) {
@@ -34,9 +34,8 @@ export function updateWeeklyPoints(allQueens, week) {
     allQueens.forEach((queen) => {
       const { id, points } = queen
       if (points > 0) {
-
-        updateTotalPoints(queen)
         updatePlayerPoints(id, points)
+        updateTotalPoints(queen)
         let currentPoints = 0
         const dbRef = ref(getDatabase())
         get(child(dbRef, `queenPoints/${id}/${week}`)).then((snapshot) => {
@@ -50,14 +49,13 @@ export function updateWeeklyPoints(allQueens, week) {
         }).catch((error) => {
           console.error(error)
         })
+
       }
 
       if (queen.selected.eliminated) {
-
         update(ref(db, 'queens/' + id), {
           active: false
         })
-
       }
       updatedQueensList.push({ ...queen, points: 0, selected: initialCategories, menuOpen: false })
     })
@@ -69,6 +67,7 @@ export function updateWeeklyPoints(allQueens, week) {
 }
 
 export function updateTotalPoints(queen) {
+  console.log("in update", queen);
   const { id, points } = queen;
   let currentPoints = 0;
   const dbRef = ref(getDatabase())
@@ -85,37 +84,39 @@ export function updateTotalPoints(queen) {
   })
 }
 
-export function updatePlayerPoints(queenID, queenPoints) {
-  console.log(queenID);
-  // get queens stans list
-  // loop through list and update each player using their id
-  // multiply queens points by id value
-  let stansList;
+function getStansList(queenID) {
   const dbRef = ref(getDatabase())
-  get(child(dbRef, `queenStans/${queenID}`)).then((snapshot) => {
+  return get(child(dbRef, `queenStans/${queenID}`)).then((snapshot) => {
     if (snapshot.exists()) {
-      stansList = snapshot.val()
-      console.log(stansList);
+      const data = snapshot.val()
+      return data
+    }
+  })
+}
+
+function getPlayerPoints(player) {
+  const dbRef = ref(getDatabase())
+  return get(child(dbRef, `players/${player}/totalPoints`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      const data = snapshot.val()
+      return data
+    }
+  })
+}
+
+
+export async function updatePlayerPoints(queenID, queenPoints) {
+  const stansList = await getStansList(queenID)
+  const players = Object.keys(stansList);
+  players.forEach(async (player) => {
+    const multiplier = stansList[player]
+    const adjustedPoints = queenPoints * multiplier
+    if (player === "austin") {
+      console.log({ player, adjustedPoints });
     }
 
-    const players = Object.keys(stansList);
-    players.forEach((player) => {
-      const multiplier = stansList[player]
-      let playerPoints = 0;
-      get(child(dbRef, `players/${player}/totalPoints`)).then((snapshot) => {
-        if (snapshot.exists()) {
-          playerPoints = snapshot.val()
-        }
-
-        const adjustedPoints = queenPoints * multiplier
-        const updatedPoints = playerPoints + adjustedPoints;
-
-        update(ref(db, 'players/' + player), {
-          totalPoints: updatedPoints
-        })
-      })
-    }).catch((error) => {
-      console.error(error)
+    update(ref(db, 'players/' + player), {
+      totalPoints: increment(adjustedPoints)
     })
   })
 }

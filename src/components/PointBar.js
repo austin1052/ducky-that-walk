@@ -5,7 +5,7 @@ import { pointValues, initialCategories, pointButtonStyles as button } from '../
 
 export default function PointBar({ queen, setAllQueens, menuOpen }) {
 
-  const { winner, mini, top, bottom, low, eliminated } = queen.selected
+  const { winner, mini, top, bottom, low, safe, eliminated } = queen.selected
 
   let containerStyle = menuOpen ? `${styles.container} ${styles.visible}` : `${styles.container}`
 
@@ -35,13 +35,19 @@ export default function PointBar({ queen, setAllQueens, menuOpen }) {
     low ? button.low.selected :
       button.low.normal
 
+  let safeStyle = !safe && isAlreadySelected(queen, "safe") ?
+    button.safe.disabled :
+    safe ? button.safe.selected :
+      button.safe.normal
+
   let eliminatedStyle = !eliminated && isAlreadySelected(queen, "eliminated") ?
     button.eliminated.disabled :
     eliminated ? button.eliminated.selected :
       button.eliminated.normal
 
+
   function closeMenu() {
-    const updatedQueen = { ...queen, menuOpen: false, points: 0, selected: initialCategories }
+    const updatedQueen = { ...queen, menuOpen: false }
     setAllQueens((allQueens) => {
       return allQueens.map(q => {
         if (q.id !== queen.id) return q;
@@ -51,6 +57,9 @@ export default function PointBar({ queen, setAllQueens, menuOpen }) {
   }
 
   function submitPoints() {
+
+    // if no buttons selected, queen is safe, add 5 points
+
     const updatedQueen = { ...queen, menuOpen: false }
     setAllQueens((allQueens) => {
       return allQueens.map(q => {
@@ -106,12 +115,15 @@ export default function PointBar({ queen, setAllQueens, menuOpen }) {
       <div className={eliminatedStyle} onClick={() => toggleButton("eliminated")}>
         Eliminated
       </div>
-      <div className={`${styles.submitButton} ${styles.button} `} onClick={submitPoints} role="button" aria-label="confirm adjust points">
+      <div className={safeStyle} onClick={() => toggleButton("safe")}>
+        Safe
+      </div>
+      {/* <div className={`${styles.submitButton} ${styles.button} `} onClick={submitPoints} role="button" aria-label="confirm adjust points">
         <div></div>
       </div>
       <div className={`${styles.cancelButton} ${styles.button} `} onClick={closeMenu} role="button" aria-label="cancel adjust points">
         <div></div>
-      </div>
+      </div> */}
     </div >
   )
 }

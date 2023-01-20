@@ -25,8 +25,9 @@ export default function AdminDashboard({ allQueensData }) {
             winner: false,
             mini: false,
             top: false,
-            bottom: false,
+            safe: false,
             low: false,
+            bottom: false,
             eliminated: false
           }
         })

@@ -80,13 +80,22 @@
   border: 1px solid var(--greenBorder);
 }
 
+.container > .safeSelected {
+  border-color: var(--blueBorder);
+  background: var(--blue);
+}
+
+.safe:hover {
+  border: 1px solid var(--blueBorder);
+}
+
 .container > .lowSelected {
   border-color: var(--yellowBorder);
   background: var(--yellow);
 }
 
 .low:hover {
-  border: 1px solid var(--yellowBorder) !important;
+  border: 1px solid var(--yellowBorder);
 }
 
 .container > .bottomSelected {
@@ -95,11 +104,7 @@
 }
 
 .bottom:hover {
-  border: 1px solid var(--orangeBorder) !important;
-}
-
-.bottom.disabled:hover {
-  border: 3px solid black;
+  border: 1px solid var(--orangeBorder);
 }
 
 .container > .eliminatedSelected {
@@ -166,4 +171,8 @@
 
 .span3 {
   grid-column: span 3;
+}
+
+.spanAll {
+  grid-column: 1/-1;
 }
