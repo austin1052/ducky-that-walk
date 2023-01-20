@@ -29,7 +29,7 @@
   --blue: rgb(39, 221, 239, 0.1);
   --blueBorder: rgb(39, 221, 239, 0.4);
   --marginMobile: 0.50rem;
-  --marginDesktop: 0.75rem;
+  --marginDesktop: 1rem;
 }
 
 * {
