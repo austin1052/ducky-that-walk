@@ -1,7 +1,7 @@
 import { db } from '../config/index.js';
 // import { db } from '../config/local.js';
 import { set, get, ref, child, getDatabase, update, increment } from 'firebase/database'
-import { initialCategories, queenPoints } from "./data.js"
+import { initialCategories } from "./data.js"
 
 export function createNewPlayer(playerData) {
   const { username, name, houseName, queens } = playerData;
@@ -93,17 +93,6 @@ function getStansList(queenID) {
     }
   })
 }
-
-function getPlayerPoints(player) {
-  const dbRef = ref(getDatabase())
-  return get(child(dbRef, `players/${player}/totalPoints`)).then((snapshot) => {
-    if (snapshot.exists()) {
-      const data = snapshot.val()
-      return data
-    }
-  })
-}
-
 
 export async function updatePlayerPoints(queenID, queenPoints) {
   const stansList = await getStansList(queenID)

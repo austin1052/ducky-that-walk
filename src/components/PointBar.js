@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import { isAlreadySelected } from '../utils/index.js'
 import styles from '../styles/PointBar.module.css'
-import { pointValues, initialCategories, pointButtonStyles as button } from '../utils/data.js'
+import { pointValues, pointButtonStyles as button } from '../utils/data.js'
 
 export default function PointBar({ queen, setAllQueens, menuOpen }) {
 
@@ -46,28 +46,25 @@ export default function PointBar({ queen, setAllQueens, menuOpen }) {
       button.eliminated.normal
 
 
-  function closeMenu() {
-    const updatedQueen = { ...queen, menuOpen: false }
-    setAllQueens((allQueens) => {
-      return allQueens.map(q => {
-        if (q.id !== queen.id) return q;
-        return updatedQueen
-      })
-    })
-  }
+  // function closeMenu() {
+  //   const updatedQueen = { ...queen, menuOpen: false }
+  //   setAllQueens((allQueens) => {
+  //     return allQueens.map(q => {
+  //       if (q.id !== queen.id) return q;
+  //       return updatedQueen
+  //     })
+  //   })
+  // }
 
-  function submitPoints() {
-
-    // if no buttons selected, queen is safe, add 5 points
-
-    const updatedQueen = { ...queen, menuOpen: false }
-    setAllQueens((allQueens) => {
-      return allQueens.map(q => {
-        if (q.id !== queen.id) return q;
-        return updatedQueen
-      })
-    })
-  }
+  // function submitPoints() {
+  //   const updatedQueen = { ...queen, menuOpen: false }
+  //   setAllQueens((allQueens) => {
+  //     return allQueens.map(q => {
+  //       if (q.id !== queen.id) return q;
+  //       return updatedQueen
+  //     })
+  //   })
+  // }
 
   function updateQueen(category, selected, points) {
     const updatedSelectionValue = { ...queen.selected, [category]: selected }
