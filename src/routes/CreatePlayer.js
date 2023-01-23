@@ -3,6 +3,7 @@ import styles from '../styles/CreatePlayer.module.css';
 import { createNewPlayer } from '../utils/db.js';
 import QueenSelection from '../components/QueenSelection.js'
 import { options } from '../utils/data.js'
+import { useNavigate } from 'react-router-dom';
 
 export default function CreatePlayer({ allQueensData }) {
   const [queensList, setQueensList] = useState([]);
@@ -11,6 +12,8 @@ export default function CreatePlayer({ allQueensData }) {
   const [houseName, setHouseName] = useState("");
   const [userFormActive, setUserFormActive] = useState(true);
   const [menuOpen, setMenuOpen] = useState({ player: false, slayer: false, winner: false })
+
+  const navigate = useNavigate();
 
   let userFormCSS, queenFormCSS;
 
@@ -60,6 +63,7 @@ export default function CreatePlayer({ allQueensData }) {
 
     createNewPlayer(playerData);
     resetForm();
+    navigate("/scores")
   }
 
   function usernameChangeHandler(event) {

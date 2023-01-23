@@ -153,7 +153,7 @@ export const players = [
     username: "eric",
     name: "Eric",
     houseName: "Spagliato",
-    queens: [["looseyladuca", 3], ["robinfierce", 2], ["mib", 2], ["salinaestitties", 1], ["jax", 1], ["irenedubois", 1]]
+    queens: [["looseyladuca", 3], ["robinfierce", 2], ["mbdf", 2], ["salinaestitties", 1], ["jax", 1], ["irenedubois", 1]]
   },
   {
     username: "jack",
@@ -244,12 +244,12 @@ export const initialCategories = {
 }
 
 export const episodeDates = {
-  week1: "006",
-  week2: "019",
+  // week1: "006",
+  week5: "022",
   // week2: "013",
   week3: "020",
   week4: "027",
-  week5: "103",
+  // week5: "103",
   week6: "110",
   week7: "117",
   week8: "124",

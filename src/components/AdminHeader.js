@@ -12,8 +12,8 @@ export default function AdminHeader({ allQueens, setAllQueens }) {
   }, [])
 
   function submitPoints() {
-    const week = getWeek(currentWeek)
-    const updatedQueensList = updateWeeklyPoints(allQueens, week);
+    // const week = getWeek(currentWeek)
+    const updatedQueensList = updateWeeklyPoints(allQueens, "week3")
     setAllQueens(updatedQueensList)
   }
 

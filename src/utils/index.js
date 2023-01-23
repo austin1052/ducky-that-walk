@@ -17,6 +17,7 @@ function merge(left, right) {
       array.push(right.shift())
     }
   }
+  // console.log(array);
   return array.concat(left.slice()).concat(right.slice());
 }
 

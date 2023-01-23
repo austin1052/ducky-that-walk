@@ -1,31 +1,34 @@
 import { db } from '../config/index.js';
 // import { db } from '../config/local.js';
-import { set, get, ref, child, getDatabase, update, increment } from 'firebase/database'
+import { onValue, set, get, ref, child, getDatabase, update, increment } from 'firebase/database'
 import { initialCategories } from "./data.js"
 
 export function createNewPlayer(playerData) {
   const { username, name, houseName, queens } = playerData;
-
-  const playerRef = ref(db, "players/" + username);
-  set(playerRef, {
-    name,
-    houseName,
-    totalPoints: 0
-  })
-
-  queens.forEach((queen) => {
-    const [id, multiplier] = queen
-    const queenRef = ref(db, "playerQueens/" + username);
-    update(queenRef, {
-      [id]: multiplier,
+  if (username.length > 0 && houseName.length > 0 && name.length > 0) {
+    const playerRef = ref(db, "players/" + username);
+    set(playerRef, {
+      name,
+      houseName
     })
 
-    // add player to queens "stans" list
-    update(ref(db, 'queenStans/' + id), {
-      [username]: multiplier
-    })
+    queens.forEach((queen) => {
+      const [id, multiplier] = queen
+      const queenRef = ref(db, "playerQueens/" + username);
+      update(queenRef, {
+        [id]: multiplier,
+      })
 
-  })
+      // add player to queens "stans" list
+      update(ref(db, 'queenStans/' + id), {
+        [username]: multiplier
+      })
+
+      console.log("user created successfully")
+    })
+  } else {
+    console.log("please fill out all fields")
+  }
 }
 
 export function updateWeeklyPoints(allQueens, week) {
@@ -33,25 +36,9 @@ export function updateWeeklyPoints(allQueens, week) {
   if (week !== undefined) {
     allQueens.forEach((queen) => {
       const { id, points } = queen
-      if (points > 0) {
-        updatePlayerPoints(id, points)
-        updateTotalPoints(queen)
-        let currentPoints = 0
-        const dbRef = ref(getDatabase())
-        get(child(dbRef, `queenPoints/${id}/${week}`)).then((snapshot) => {
-          if (snapshot.exists()) {
-            currentPoints = snapshot.val()
-          }
-          const totalPoints = currentPoints + points
-          update(ref(db, 'queenPoints/' + id), {
-            [week]: totalPoints
-          })
-        }).catch((error) => {
-          console.error(error)
-        })
-
-      }
-
+      update(ref(db, 'queenPoints/' + id), {
+        [week]: increment(points)
+      })
       if (queen.selected.eliminated) {
         update(ref(db, 'queens/' + id), {
           active: false
@@ -59,32 +46,19 @@ export function updateWeeklyPoints(allQueens, week) {
       }
       updatedQueensList.push({ ...queen, points: 0, selected: initialCategories, menuOpen: false })
     })
-  } else {
-    alert("You can only update points when the episode is airing")
-    return allQueens
   }
   return updatedQueensList
 }
 
 export function updateTotalPoints(queen) {
-  console.log("in update", queen);
+
   const { id, points } = queen;
-  let currentPoints = 0;
-  const dbRef = ref(getDatabase())
-  get(child(dbRef, `queens/${id}/totalPoints`)).then((snapshot) => {
-    if (snapshot.exists()) {
-      currentPoints = snapshot.val()
-    }
-    const totalPoints = currentPoints + points
-    update(ref(db, 'queens/' + id), {
-      totalPoints
-    })
-  }).catch((error) => {
-    console.error(error)
+  update(ref(db, 'queens/' + id), {
+    totalPoints: increment(points)
   })
 }
 
-function getStansList(queenID) {
+async function getStansList(queenID) {
   const dbRef = ref(getDatabase())
   return get(child(dbRef, `queenStans/${queenID}`)).then((snapshot) => {
     if (snapshot.exists()) {
@@ -94,19 +68,37 @@ function getStansList(queenID) {
   })
 }
 
+export async function getQueensList(playerID) {
+  const dbRef = ref(getDatabase())
+  return get(child(dbRef, `playerQueens/${playerID}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      const data = snapshot.val()
+      return data
+    }
+  })
+}
+
 export async function updatePlayerPoints(queenID, queenPoints) {
   const stansList = await getStansList(queenID)
-  const players = Object.keys(stansList);
-  players.forEach(async (player) => {
-    const multiplier = stansList[player]
-    const adjustedPoints = queenPoints * multiplier
-    if (player === "austin") {
-      console.log({ player, adjustedPoints });
-    }
-
-    update(ref(db, 'players/' + player), {
-      totalPoints: increment(adjustedPoints)
+  if (stansList !== undefined) {
+    const players = Object.keys(stansList);
+    players.forEach(async (player) => {
+      const multiplier = stansList[player]
+      const adjustedPoints = queenPoints * multiplier
+      update(ref(db, 'players/' + player), {
+        totalPoints: increment(adjustedPoints)
+      })
     })
+  }
+}
+
+export async function getQueenWeeklyPoints() {
+  const queensRef = ref(db, "queenPoints/")
+  return onValue(queensRef, (snapshot) => {
+    if (snapshot.exists()) {
+      const data = snapshot.val()
+      return data
+    }
   })
 }
 

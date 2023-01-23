@@ -94,6 +94,9 @@ export default function PointBar({ queen, setAllQueens, menuOpen }) {
 
   return (
     <div className={containerStyle}>
+      <div className={safeStyle} onClick={() => toggleButton("safe")}>
+        Safe
+      </div>
       <div className={topStyle} onClick={() => toggleButton("top")}>
         Top
       </div>
@@ -111,9 +114,6 @@ export default function PointBar({ queen, setAllQueens, menuOpen }) {
       </div>
       <div className={eliminatedStyle} onClick={() => toggleButton("eliminated")}>
         Eliminated
-      </div>
-      <div className={safeStyle} onClick={() => toggleButton("safe")}>
-        Safe
       </div>
       {/* <div className={`${styles.submitButton} ${styles.button} `} onClick={submitPoints} role="button" aria-label="confirm adjust points">
         <div></div>
