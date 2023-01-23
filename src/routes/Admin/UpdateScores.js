@@ -8,7 +8,6 @@ import styles from "../../styles/Admin/Dashboard.module.css"
 export default function UpdateScores({ allQueensData }) {
   const [allQueens, setAllQueens] = useState()
   const [columnGroups, setColumnGroups] = useState()
-  const [_selected, _setSelected] = useState();
   const isMobile = useContext(MobileContext)
 
   useEffect(() => {
