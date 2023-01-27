@@ -17,7 +17,6 @@ export default function Scores({ allQueensData }) {
   const [otherPlayers, setOtherPlayers] = useState([])
   const isMobile = useContext(MobileContext)
 
-  console.log(allQueens);
 
   // creates queen list, gets list and their total points
   useEffect(() => {
@@ -114,7 +113,7 @@ export default function Scores({ allQueensData }) {
     <div className="page-container">
       <div className={styles.container}>
         <div className={styles.headerContainer}>
-          <h1>Top Three Bitches</h1>
+          <h1>Top Three</h1>
         </div>
         <div className={styles.topThreeContainer}>
           {

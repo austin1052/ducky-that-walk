@@ -33,13 +33,14 @@ export function createNewPlayer(playerData) {
 
 export function updateWeeklyPoints(allQueens, week) {
   const updatedQueensList = []
+  console.log(allQueens);
   if (week !== undefined) {
     allQueens.forEach((queen) => {
       const { id, points } = queen
       update(ref(db, 'queenPoints/' + id), {
         [week]: increment(points)
       })
-      if (queen.selected.eliminated) {
+      if (queen.selected && queen.selected.eliminated) {
         update(ref(db, 'queens/' + id), {
           active: false
         })

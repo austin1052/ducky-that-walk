@@ -84,11 +84,11 @@ export default function CreatePlayer({ allQueensData }) {
   function setFormPosition() {
     if (userFormActive) {
       userFormCSS = `${styles.inputContainer}`;
-      queenFormCSS = `${styles.inputContainer} ${styles.hiddenRight}`
+      queenFormCSS = `${styles.inputContainer} ${styles.queenForm} ${styles.hiddenRight}`
     }
     if (!userFormActive) {
       userFormCSS = `${styles.inputContainer} ${styles.hiddenLeft}`;
-      queenFormCSS = `${styles.inputContainer}`
+      queenFormCSS = `${styles.inputContainer} ${styles.queenForm}`
     }
   }
 

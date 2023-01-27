@@ -11,7 +11,8 @@
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
+  width: 400px;
 }
 
 .form input {
@@ -31,20 +32,29 @@
 .inputContainer {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 100%;
+
   padding: 1rem;
   transition: 500ms;
   border-radius: var(--br);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
 }
 
-.inputContainer:last-of-type{
+.queenForm {
   transform: translate(0%, -100%);
 }
 
-.inputContainer:last-of-type.hiddenRight {
+.queenForm.hiddenRight {
   transform: translate(1000%, -100%); 
 }
+
+/* .inputContainer:last-of-type{
+  transform: translate(0%, -100%);
+} */
+
+/* .inputContainer:last-of-type.hiddenRight {
+  transform: translate(1000%, -100%); 
+} */
 
 .hiddenLeft {
   transform: translate(-1000%, 0%); 
@@ -54,7 +64,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1.5rem;
 }
 
 .inputContainer:first-of-type .buttons {

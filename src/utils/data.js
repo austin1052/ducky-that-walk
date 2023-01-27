@@ -244,12 +244,11 @@ export const initialCategories = {
 }
 
 export const episodeDates = {
-  // week1: "006",
-  week5: "022",
-  // week2: "013",
+  week1: "006",
+  week2: "013",
   week3: "020",
   week4: "027",
-  // week5: "103",
+  week5: "103",
   week6: "110",
   week7: "117",
   week8: "124",
@@ -261,3 +260,202 @@ export const episodeDates = {
   week14: "307",
   week15: "314"
 }
+
+export const months = ["January", "February", "March"]
+
+export const previousWeeksPoints = [
+  ["006", [
+    {
+      id: "amethyst",
+      points: 0
+    },
+    {
+      id: "anetra",
+      points: 10
+    },
+    {
+      id: "auramayari",
+      points: 5
+    },
+    {
+      id: "irenedubois",
+      points: 2,
+      selected: { eliminated: true }
+    },
+    {
+      id: "jax",
+      points: 7.5
+    },
+    {
+      id: "looseyladuca",
+      points: 4.5
+    },
+    {
+      id: "luxxnoirlondon",
+      points: 5
+    },
+    {
+      id: "marciax3",
+      points: 7.5
+    },
+    {
+      id: "mbdf",
+      points: 5
+    },
+    {
+      id: "mib",
+      points: 5
+    },
+    {
+      id: "princesspoppy",
+      points: 5
+    },
+    {
+      id: "robinfierce",
+      points: 5
+    },
+    {
+      id: "salinaestitties",
+      points: 5
+    },
+    {
+      id: "sashacolby",
+      points: 5
+    },
+    {
+      id: "spice",
+      points: 5
+    },
+    {
+      id: "sugar",
+      points: 5
+    },
+  ]
+  ],
+  ["013", [
+    {
+      id: "amethyst",
+      points: 0
+    },
+    {
+      id: "anetra",
+      points: 5
+    },
+    {
+      id: "auramayari",
+      points: 5
+    },
+    {
+      id: "jax",
+      points: 2.5
+    },
+    {
+      id: "looseyladuca",
+      points: 7.5
+    },
+    {
+      id: "luxxnoirlondon",
+      points: 7.5
+    },
+    {
+      id: "marciax3",
+      points: 5
+    },
+    {
+      id: "mbdf",
+      points: 5
+    },
+    {
+      id: "mib",
+      points: 5
+    },
+    {
+      id: "princesspoppy",
+      points: 0,
+      selected: { eliminated: true }
+    },
+    {
+      id: "robinfierce",
+      points: 5
+    },
+    {
+      id: "salinaestitties",
+      points: 5
+    },
+    {
+      id: "sashacolby",
+      points: 10
+    },
+    {
+      id: "spice",
+      points: 5
+    },
+    {
+      id: "sugar",
+      points: 5
+    },
+  ]
+  ],
+  ["020", [
+    {
+      id: "amethyst",
+      points: 5
+    },
+    {
+      id: "anetra",
+      points: 5
+    },
+    {
+      id: "auramayari",
+      points: 2.5
+    },
+    {
+      id: "jax",
+      points: 5
+    },
+    {
+      id: "looseyladuca",
+      points: 10
+    },
+    {
+      id: "luxxnoirlondon",
+      points: 5
+    },
+    {
+      id: "marciax3",
+      points: 7.5
+    },
+    {
+      id: "mbdf",
+      points: 5
+    },
+    {
+      id: "mib",
+      points: 7.5
+    },
+    {
+      id: "robinfierce",
+      points: 5
+    },
+    {
+      id: "salinaestitties",
+      points: 5
+    },
+    {
+      id: "sashacolby",
+      points: 5
+    },
+    {
+      id: "spice",
+      points: 0
+    },
+    {
+      id: "sugar",
+      points: 0,
+      selected: { eliminated: true }
+    },
+  ]
+  ]
+]
+
+export const weekValues = [["January 6", "006"], ["January 13", "013"], ["January 20", "020"], ["January 27", "027"]]

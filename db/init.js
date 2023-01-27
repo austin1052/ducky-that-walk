@@ -1,14 +1,17 @@
 // need to comment out styles import and pointButtonStyles in data.js for this to run 
 
-import { ref, set } from "firebase/database"
+import { ref, set, update } from "firebase/database"
+import { forEach } from "underscore";
 import { db } from "../src/config/local.js"
-import { queenData, players } from "../src/utils/data.js";
+import { queenData, players, previousWeeksPoints } from "../src/utils/data.js";
 import { createNewPlayer } from "../src/utils/db.js";
+import { updateWeeklyPoints } from "../src/utils/db.js";
 
 
 function buildDB() {
   createInitialQueens(queenData);
-  createTestPlayers(players, "week2");
+  createTestPlayers(players);
+  addPreviousWeeksPoints(previousWeeksPoints)
 }
 
 function createInitialQueens(queenData) {
@@ -26,6 +29,17 @@ function createInitialQueens(queenData) {
 function createTestPlayers(players) {
   players.forEach(playerData => {
     createNewPlayer(playerData)
+  })
+}
+
+function addPreviousWeeksPoints(previousWeeksPoints) {
+  // loop through array of weeks and queen points 
+  // [ ["027", [{id, points}, {id, points}, {id, points}] ] ]
+  previousWeeksPoints.forEach(week => {
+    const date = week[0]
+    const queens = week[1]
+    const updatedQueens = updateWeeklyPoints(queens, date)
+    console.log(updatedQueens);
   })
 }
 
