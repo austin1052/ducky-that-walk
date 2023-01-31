@@ -1,4 +1,6 @@
-import logo from "../assets/ducky-that-walk-logo.png"
+// import logo from "../assets/ducky-that-walk-logo.png"
+import logo from "../assets/walk-that-duck-logo.png"
+
 import styles from "../styles/LoadingScreen.module.css"
 
 export default function LoadingScreen() {

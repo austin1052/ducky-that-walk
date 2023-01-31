@@ -112,9 +112,9 @@ export default function Scores({ allQueensData }) {
   return (
     <div className="page-container">
       <div className={styles.container}>
-        <div className={styles.headerContainer}>
+        {/* <div className={styles.headerContainer}>
           <h1>Top Three</h1>
-        </div>
+        </div> */}
         <div className={styles.topThreeContainer}>
           {
             (topThreePlayers && !isMobile) &&
@@ -136,9 +136,9 @@ export default function Scores({ allQueensData }) {
             })
           }
         </div>
-        <div className={styles.headerContainer}>
+        {/* <div className={styles.headerContainer}>
           <h1>Losers</h1>
-        </div>
+        </div> */}
         <div className={styles.listContainer}>
           {
             (otherPlayers) &&

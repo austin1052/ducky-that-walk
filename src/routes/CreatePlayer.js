@@ -100,7 +100,7 @@ export default function CreatePlayer({ allQueensData }) {
   setFormPosition();
 
   return (
-    <>
+    <div className="page-container">
       <div className={styles.container} >
         <form className={styles.form}>
           <div className={userFormCSS}>
@@ -125,6 +125,6 @@ export default function CreatePlayer({ allQueensData }) {
           </div>
         </form>
       </div >
-    </>
+    </div>
   );
 };

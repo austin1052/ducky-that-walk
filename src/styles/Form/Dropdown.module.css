@@ -34,18 +34,26 @@
   transform: translateY(-2.2rem);
   z-index: 10;
   width: calc(100% - 2rem);
-  display: none;
-  height: 0;
+  /* width: calc(400px - 2rem); */
+  max-height: 0;
+  visibility: hidden;
+  opacity: 0;
   border: var(--border2);
   border-top: none;
   border-bottom-left-radius: var(--br);
   border-bottom-right-radius: var(--br);
   overflow: scroll;
+  transition: max-height 300ms;
+}
+
+.weekListItems {
+  width: calc(100% - 4rem);
 }
 
 .menuOpen {
-  display: block;
-  height: 100%;
+  visibility: visible;
+  opacity: 1;
+  max-height: 400px;
 }
 
 .listItem {

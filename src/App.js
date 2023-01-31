@@ -25,7 +25,7 @@ function App() {
         setAllQueensData(data)
         setTimeout(() => {
           setIsLoading(false)
-        }, 1500)
+        }, 1200)
       }
     })
   }, [])
