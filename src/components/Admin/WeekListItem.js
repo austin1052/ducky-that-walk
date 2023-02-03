@@ -2,6 +2,7 @@
 import styles from "../../styles/Form/Dropdown.module.css"
 
 export default function WeeklistItem({ week, selectedWeek, setSelectedWeek, setMenuOpen }) {
+
   const itemStyle = selectedWeek[1] === week[1] ? `${styles.listItem} ${styles.checked}` : `${styles.listItem}`
 
   function toggleChecked() {

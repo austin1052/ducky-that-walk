@@ -65,24 +65,25 @@ export default function UpdateScores({ allQueensData }) {
 
 
   return (
-    <div className="page-container background-pink">
-      {
-        confirmScoresOpen &&
-        <ConfirmScores setConfirmScoresOpen={setConfirmScoresOpen} allQueens={allQueens} />
-      }
-      <div className={styles.container}>
-        <AdminHeader allQueens={allQueens} setAllQueens={setAllQueens} setConfirmScoresOpen={setConfirmScoresOpen} />
-        <div className={styles.columnContainer}>
-          {columnGroups &&
-            Object.keys(columnGroups).map((group, i) => {
-              return (
-                <QueenColumn queens={columnGroups[group]} key={i} setAllQueens={setAllQueens} />
-              )
-            })}
+    <>
+      <AdminHeader allQueens={allQueens} setAllQueens={setAllQueens} setConfirmScoresOpen={setConfirmScoresOpen} />
+      <div className="page-container background-pink">
+        {
+          confirmScoresOpen &&
+          <ConfirmScores setConfirmScoresOpen={setConfirmScoresOpen} allQueens={allQueens} />
+        }
+        <div className={styles.container}>
+          <div className={styles.columnContainer}>
+            {columnGroups &&
+              Object.keys(columnGroups).map((group, i) => {
+                return (
+                  <QueenColumn queens={columnGroups[group]} key={i} setAllQueens={setAllQueens} />
+                )
+              })}
+          </div>
         </div>
       </div>
-
-    </div>
+    </>
 
   )
 }

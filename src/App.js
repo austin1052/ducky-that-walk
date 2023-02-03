@@ -39,9 +39,9 @@ function App() {
             <Routes>
               {/* <Route path="/" element={<Home />} /> */}
               <Route path="/log-in" element={<LogIn />} />
-              <Route path="/scores" element={<Scores allQueensData={allQueensData} />} />
+              <Route path="/" element={<Scores allQueensData={allQueensData} />} />
               <Route path="/create-player" element={<CreatePlayer allQueensData={allQueensData} />} />
-              <Route path="/admin/dashboard" element={<Dashboard />} />
+              <Route path="/admin" element={<Dashboard />} />
               <Route path="/admin/scores" element={<UpdateScores allQueensData={allQueensData} />} />
             </Routes>
         }

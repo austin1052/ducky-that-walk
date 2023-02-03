@@ -79,3 +79,9 @@ export function createColumnGroups(queens, isMobile) {
   }
   return columnGroups;
 }
+
+export function parseDate(date) {
+  const day = date.slice(-2)
+  const month = Number(date.slice(0, -2)) + 1
+  return month + "/" + day
+}

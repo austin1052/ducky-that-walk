@@ -10,7 +10,7 @@
 
 @media only screen and (max-width: 768px) {
   .pageContainer {
-     padding-left: var(--marginMobile);
+    padding-left: var(--marginMobile);
     padding-right: var(--marginMobile);
   }
 }

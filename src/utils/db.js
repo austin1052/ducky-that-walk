@@ -33,7 +33,8 @@ export function createNewPlayer(playerData) {
 
 export function updateWeeklyPoints(allQueens, week) {
   const updatedQueensList = []
-  console.log(allQueens);
+  // console.log(allQueens);
+  console.log(week);
   if (week !== undefined) {
     allQueens.forEach((queen) => {
       const { id, points } = queen
