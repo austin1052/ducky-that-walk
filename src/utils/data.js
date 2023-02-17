@@ -458,4 +458,7 @@ export const previousWeeksPoints = [
   ]
 ]
 
-export const weekValues = [["January 6", "006"], ["January 13", "013"], ["January 20", "020"], ["January 27", "027"], ["February 3", "103"], ["February 10", "110"]]
+// export const weekValues = [["January 6", "006"], ["January 13", "013"], ["January 20", "020"], ["January 27", "027"], ["February 3", "103"], ["February 10", "110"]]
+
+
+export const weekValues = [["February 17", "117"]]
