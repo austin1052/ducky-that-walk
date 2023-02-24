@@ -1,1 +1,1 @@
-# you better walk that duck
+# you better walk. that. duck.
